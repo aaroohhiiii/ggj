@@ -1,0 +1,213 @@
+MASK SWAP — FULL GAME FLOW (3 LEVELS)
+======================================
+Detailed flow for Level 1, Level 2, Level 3. Theme: Mask | Platform: Godot 3D.
+
+----------------------------------------
+OVERVIEW
+----------------------------------------
+
+GOAL (whole game)
+  Infiltrate a facility across three levels. Each level has its own objective that leads to the next. Final objective: reach the inner vault / target and steal the prize (or complete the mission).
+
+MASK TYPES (used across 3 levels)
+  • GUARD    — Opens guard doors, guards ignore you.
+  • JANITOR  — Can enter vents and maintenance areas.
+  • SCIENTIST — Can hack terminals (open doors, disable cameras).
+
+LEVEL STRUCTURE
+  Level 1: Get in. (Get Guard mask → enter building.)
+  Level 2: Get deeper. (Get Janitor or Scientist mask → pass inner barriers.)
+  Level 3: Get the prize. (Reach objective, perform final action, win.)
+
+WIN CONDITION
+  Complete the final action in Level 3 (e.g. steal item, hack main terminal, reach exit).
+
+----------------------------------------
+LEVEL 1 — "GET IN"
+----------------------------------------
+
+PURPOSE
+  Player learns movement, mask swap, and "right mask for the right door." One mask type (Guard). One clear objective: enter the building.
+
+SPAWN
+  • Player spawns outside the facility (e.g. alley, loading dock, or street).
+  • No mask, or a "civilian" mask that has no access.
+  • Brief context (optional): one line of text or UI — "Get inside."
+
+AREA 1.1 — EXTERIOR
+  • Small outdoor space: fence, gate, or door leading into the building.
+  • One guard at the main entrance. Door is locked; prompt: "Guard access only" or no prompt until correct mask.
+  • Player must get a Guard mask.
+  • How to get Guard mask:
+    Option A: Single guard patrols a short path. Player sneaks behind, takedown (one button), take mask from body. No other guards see.
+    Option B: Guard standing still. Same: sneak from behind, takedown, take mask.
+  • After taking mask: interact with body → "Take Guard mask" → player now has Guard mask equipped.
+  • Approach main door → "Press E to open" (only works with Guard mask) → door opens.
+
+AREA 1.2 — LOBBY / ENTRANCE HALL
+  • Player enters. Interior: lobby or reception area.
+  • 1–2 guards patrol or stand. With Guard mask, they ignore the player (or nod). No chase.
+  • Opposite side of lobby: door or corridor leading to "Level 1 exit" / "Restricted — Level 2 access."
+  • That door is locked. Terminal beside it: "Scientist clearance required" or "Authorized personnel only."
+  • Player cannot open it yet (no Scientist mask in Level 1). So Level 1's "exit" is just: reach that door and interact → "Level 2 access — find a way to open this" or the game transitions to Level 2 via a loading/cutscene that says "You need Scientist clearance. Find it in the next area."
+  • For a clean 3-level flow: Level 1 ends when player reaches the lobby exit. Transition to Level 2 (next scene).
+
+LEVEL 1 FLOW (STEP BY STEP)
+  1. Spawn exterior.
+  2. Locate guard. Sneak behind, takedown, take Guard mask.
+  3. Open main door with Guard mask. Enter lobby.
+  4. Cross lobby (guards ignore you). Reach door to Level 2.
+  5. Interact with door / terminal → "Scientist clearance required" (tease for Level 2) → transition to Level 2 (e.g. door opens after a moment, or load next scene).
+
+LEVEL 1 MASKS
+  • Obtain: Guard.
+  • Use: Guard (to open main door and pass lobby).
+
+----------------------------------------
+LEVEL 2 — "GET DEEPER"
+----------------------------------------
+
+PURPOSE
+  Introduce second mask type. Player must get Scientist (or Janitor) to pass obstacles. Two possible paths (vent or terminal) or one path that requires one mask.
+
+SPAWN
+  • Player spawns in Level 2 — e.g. "Restricted corridor" or "Staff area" just beyond the lobby.
+  • Player still has Guard mask from Level 1 (or start Level 2 with Guard mask if you don't carry state; if you do carry state, they enter with Guard mask).
+
+AREA 2.1 — CORRIDORS / STAFF ZONE
+  • Corridors with doors. Some doors: "Guard only" (player can open with Guard mask). Some: "Scientist only" or "Maintenance only."
+  • Guards patrol. With Guard mask, safe. Goal: reach a zone where a Scientist (or Janitor) is present.
+  • Scientist: e.g. in a lab room or office. Alone or with one other NPC who can be avoided. Player sneaks behind Scientist, takedown, take Scientist mask.
+  • Optional: Janitor in a closet or side room. Take Janitor mask for vent path (see below).
+
+AREA 2.2 — OBSTACLE (CHOICE OR SINGLE PATH)
+  • Path A — Terminal: A door blocking progress has a terminal. "Scientist clearance required." Player with Scientist mask: interact → "Hack terminal" → door opens.
+  • Path B — Vent: A vent or maintenance hatch. "Maintenance access only." Player with Janitor mask: interact → enter vent → emerge in next area.
+  • For simplicity: use one path. E.g. only Scientist + terminal in Level 2. Or only Janitor + vent. Then Level 2 requires one new mask (Scientist or Janitor).
+  • Recommendation: Scientist + terminal. One Scientist NPC, one terminal, one door. Player gets Scientist mask → hacks terminal → door to Level 3 opens.
+
+AREA 2.3 — LEVEL 2 EXIT
+  • Beyond the hacked door (or vent): short corridor or room with "Level 3 — Inner zone" or elevator / stairwell down. Player enters → transition to Level 3.
+
+LEVEL 2 FLOW (STEP BY STEP)
+  1. Spawn in Level 2 (corridors). Have Guard mask.
+  2. Use Guard mask to open any Guard doors if needed. Explore to find Scientist (or Janitor).
+  3. Sneak behind Scientist (or Janitor). Takedown, take mask.
+  4. Reach the locked door (terminal or vent). Use Scientist mask to hack terminal (or Janitor to enter vent).
+  5. Door opens (or exit vent). Reach Level 2 exit. Transition to Level 3.
+
+LEVEL 2 MASKS
+  • Have: Guard (from Level 1 or start).
+  • Obtain: Scientist (or Janitor).
+  • Use: Scientist to hack terminal (or Janitor for vent).
+
+----------------------------------------
+LEVEL 3 — "GET THE PRIZE"
+----------------------------------------
+
+PURPOSE
+  Final level. Player has (or can re-obtain) the masks needed. Objective: reach the inner vault / target room and perform the final action (steal item, hack main terminal, escape).
+
+SPAWN
+  • Player spawns in Level 3 — e.g. "Inner zone," "Secure floor," or "Vault level."
+  • Player has Guard + Scientist masks (or whatever was collected). If mask state doesn't carry, place Guard and Scientist pickups early in Level 3 so player can re-equip.
+
+AREA 3.1 — INNER ZONE
+  • Corridors or rooms leading to the objective. Fewer guards, or guards that can be avoided with Guard mask. Optional: one more terminal (Scientist) or one more vent (Janitor) if you want to reuse mechanics.
+  • Clear signage or layout: "Vault ahead," "Restricted — Authorized only."
+
+AREA 3.2 — VAULT / TARGET ROOM
+  • Final room. Contains the objective:
+    Option A: Vault door. Scientist hack on terminal to open vault. Player hacks → vault opens → item inside. Interact to "Take [item]."
+    Option B: Target's desk / safe. Guard or Scientist opens the way. Final interaction: "Take dossier" / "Steal keycard" / "Plant device."
+    Option C: Escape route. Prize is in the room. Take it, then reach exit (e.g. elevator to roof, or door to street).
+  • One clear final action: interact with object → short feedback (sound, text: "Objective complete") → WIN.
+
+AREA 3.3 — WIN
+  • After final action: victory screen or short cutscene. "Mission complete." Optional: "You escaped with the [item]."
+
+LEVEL 3 FLOW (STEP BY STEP)
+  1. Spawn in Level 3. Have Guard + Scientist (or re-pick masks from placed pickups).
+  2. Navigate inner zone. Use Guard to pass guards, Scientist to hack any terminal blocking the path to the vault.
+  3. Reach vault / target room. Use Scientist to hack vault terminal (or door is already open if you want simpler flow).
+  4. Enter vault. Interact with prize (item / terminal / target). Final action triggered.
+  5. Win. Show victory state.
+
+LEVEL 3 MASKS
+  • Use: Guard (safe passage), Scientist (hack vault terminal / open final door).
+  • No new mask required if you want Level 3 to be "execution" only — player already has what they need.
+
+----------------------------------------
+FULL FLOW DIAGRAM (ALL 3 LEVELS)
+----------------------------------------
+
+  LEVEL 1
+  -------
+  [Spawn exterior] → [Get Guard mask] → [Open main door] → [Cross lobby] → [Reach L2 door] → [Transition to Level 2]
+
+  LEVEL 2
+  -------
+  [Spawn corridors] → [Find Scientist] → [Take Scientist mask] → [Hack terminal at locked door] → [Reach L3 exit] → [Transition to Level 3]
+
+  LEVEL 3
+  -------
+  [Spawn inner zone] → [Navigate to vault] → [Hack vault terminal / open final door] → [Enter vault] → [Take prize / final action] → [WIN]
+
+----------------------------------------
+DETAILED MOMENT-TO-MOMENT (ALL LEVELS)
+----------------------------------------
+
+MOVEMENT
+  • Walk, run (optional), crouch (optional). Third-person or first-person. CharacterBody3D + move_and_slide().
+
+MASK SWAP
+  • Approach NPC body or mask pickup. Prompt: "Press E to take [Guard/Scientist/Janitor] mask." Interact → current mask replaced by new mask. Model/UI update.
+
+INTERACTIONS
+  • Door (Guard): "Press E to open" — only if Guard mask. Else: no prompt or "Guard access only."
+  • Terminal (Scientist): "Press E to hack" — only if Scientist mask. Opens linked door or disables camera.
+  • Vent (Janitor): "Press E to enter" — only if Janitor mask. Load sub-scene or move player through vent to exit point.
+
+NPC BEHAVIOUR
+  • Guard: Patrol or idle. Raycast or area check: "Do I see the player?" If yes, "Does player have Guard mask?" If no mask or wrong mask → chase / alert. If Guard mask → ignore.
+  • Scientist / Janitor: Idle or short path. No chase. Player can sneak behind, takedown, take mask.
+
+TAKEDOWN
+  • One button (e.g. E when behind NPC). Short animation or instant. NPC goes "unconscious" or removed. Player can then take mask from body.
+
+----------------------------------------
+CHECKLIST PER LEVEL (FOR IMPLEMENTATION)
+----------------------------------------
+
+LEVEL 1
+  [ ] Exterior scene: spawn point, one guard, main door.
+  [ ] Guard: patrol or static, takedown possible, drops Guard mask.
+  [ ] Main door: opens only with Guard mask.
+  [ ] Lobby: 1–2 guards (ignore if Guard mask), exit to Level 2.
+  [ ] Transition: trigger or door that loads Level 2.
+
+LEVEL 2
+  [ ] Corridor scene: spawn, Guard doors (optional), Scientist NPC.
+  [ ] Scientist: takedown, drops Scientist mask.
+  [ ] Locked door + terminal. Terminal: hack only with Scientist mask → opens door.
+  [ ] Level 2 exit: trigger to load Level 3.
+
+LEVEL 3
+  [ ] Inner zone: corridors, path to vault room.
+  [ ] Vault room: terminal (Scientist hack) to open vault, or door already open.
+  [ ] Prize object: interact → trigger win.
+  [ ] Win state: UI or scene "Mission complete."
+
+----------------------------------------
+SUMMARY TABLE
+----------------------------------------
+
+  Level  | Spawn           | Masks needed      | Obstacle              | Exit / Win
+  -------|-----------------|-------------------|------------------------|------------------
+  L1     | Exterior        | Get Guard         | Main door (Guard)      | Reach L2 door
+  L2     | Corridors       | Get Scientist     | Terminal door (Scientist)| Reach L3
+  L3     | Inner zone      | Use Guard+Scientist| Vault terminal        | Take prize → WIN
+
+----------------------------------------
+END OF DOCUMENT
+----------------------------------------

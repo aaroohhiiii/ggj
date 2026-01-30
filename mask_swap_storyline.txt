@@ -1,0 +1,140 @@
+MASK SWAP — STORYLINE
+=====================
+Theme: Mask | Social cause: Access and identity | Use this for in-game text, store page, and jam pitch.
+
+----------------------------------------
+1. PREMISE
+----------------------------------------
+
+You are an infiltrator. You don't belong here — not by their rules. This place only lets in the right face. So you wear it.
+
+You steal masks from those who have access. Guard, Scientist, Janitor. Each mask opens doors that stay closed to everyone else. Wrong mask = no access. No questions asked.
+
+You're not here to destroy. You're here to reach someone — or something — that's been kept behind who you're allowed to be.
+
+----------------------------------------
+2. SETTING
+----------------------------------------
+
+THE FACILITY
+  A closed system. Elite institution, corporate campus, or gated research complex. In India, or anywhere such places exist: guarded gates, "Authorised personnel only," clear hierarchy. Guards at the door. Scientists in the labs. Janitors in the corridors nobody notices.
+
+  The player infers: this place is for "the right people." Everyone else is kept out — or let in only when they look the part.
+
+NO EXPLICIT REAL-WORLD LABELS
+  Don't name castes, religions, or communities. The facility and the masks are fictional. The theme (access, identity, "right face") does the work.
+
+----------------------------------------
+3. MOTIVE (WHY YOU'RE HERE)
+----------------------------------------
+
+Pick one, or keep it vague. One line at start is enough.
+
+OPTION A — RESCUE
+  They took someone from you. A family member, a friend. This facility holds them — or holds the key to where they are. You're here to get them out.
+
+OPTION B — PROOF
+  Something here could change your life — or someone else's. Evidence. A document. A truth. The door is closed to you. So you wear the face that opens it.
+
+OPTION C — SURVIVAL
+  You need what's inside. Medicine. Money. A chance. They only let in the right face. So you wear it.
+
+OPTION D — VAGUE (RECOMMENDED FOR 48H)
+  You're here for a reason. They don't care. They only care that you look like you belong. So you wear the face that opens the door.
+
+----------------------------------------
+4. OPENING (START OF GAME)
+----------------------------------------
+
+Use one screen. One to three sentences. Then gameplay.
+
+RECOMMENDED OPENING TEXT
+  "They only let in the right face. So you wear it. Get in. Reach what you came for. Get out."
+
+ALTERNATIVE (LONGER)
+  "This place doesn't let you in. Not as you are. They only open the door for the right face — Guard, Scientist, the ones who belong. So you take that face. You get in. You reach what you came for. You get out."
+
+ALTERNATIVE (SOCIAL-CAUSE FRAMING)
+  "Access depends on the mask you wear. Here, that's literal. Get in. Reach what you came for. Get out."
+
+----------------------------------------
+5. IN-GAME LINES (DOORS / TERMINALS / VENTS)
+----------------------------------------
+
+When the player tries the wrong mask (or no mask), show one short line. Reinforces theme without preaching.
+
+GUARD DOOR (player has no Guard mask)
+  "Authorised personnel only."
+  OR "You're not on the list."
+  OR "Guard clearance required."
+
+TERMINAL (player has no Scientist mask)
+  "Clearance required."
+  OR "Access denied."
+  OR "Authorised personnel only."
+
+VENT (player has no Janitor mask)
+  "Maintenance access only."
+  OR "Authorised personnel only."
+
+----------------------------------------
+6. OPTIONAL — NPC LINE BEFORE TAKEDOWN
+----------------------------------------
+
+One NPC (e.g. Scientist or Janitor) can say one line when the player is close / about to takedown. Adds moral weight. Player can still take the mask.
+
+EXAMPLES
+  "Please — I'm not one of them. I just needed the job."
+  OR "Don't. I'm not one of them. I just clean."
+  OR "Please — I have a family."
+
+Use at most one such line per level, or only once in the whole game. Keeps it from feeling preachy.
+
+----------------------------------------
+7. OPTIONAL — JANITOR MASK (INVISIBLE LABOUR)
+----------------------------------------
+
+When the player takes the Janitor mask, one short line (e.g. on screen or in UI).
+
+  "Nobody looks at the one who cleans."
+
+Ties "invisible" labour to the mask. No gameplay change. One line only.
+
+----------------------------------------
+8. ENDING (AFTER PLAYER REACHES OBJECTIVE)
+----------------------------------------
+
+Use one screen. One to three sentences. Then "Mission complete" or return to menu.
+
+RECOMMENDED ENDING
+  "You got in. You had to wear their face to do it. You got out. The door still only opens for the right face."
+
+ALTERNATIVE (HOPE)
+  "You reached them. You had to wear their face to do it. Next time, maybe the door opens for the face you already have."
+
+ALTERNATIVE (MINIMAL)
+  "You got in. You got out. You wore their face. Nothing else changed."
+
+SOCIAL-CAUSE CLOSING (optional, after main ending)
+  "Inspired by how often access depends on the mask we wear."
+  [Optional: link to one NGO — education, mental health, or inclusion — in India or elsewhere.]
+
+----------------------------------------
+9. STORE PAGE / JAM PITCH (ONE PARAGRAPH)
+----------------------------------------
+
+"Mask Swap is a 3D stealth game about identity and access. You infiltrate a closed facility by stealing the masks of those who belong — Guard, Scientist, Janitor. Each mask opens doors that stay closed to everyone else. Wrong mask = no access. You're not here to destroy. You're here to reach what you came for. The game asks: what do we wear to get through the door? Inspired by how often access depends on the face we're allowed to show."
+
+----------------------------------------
+10. SUMMARY — STORY BEATS
+----------------------------------------
+
+  START   — One screen: "They only let in the right face. So you wear it. Get in. Reach what you came for. Get out."
+  PLAY    — Stealth, mask swap, doors, terminals, vents. Optional: one NPC line before takedown; one line when taking Janitor mask.
+  DOORS   — "Authorised only" / "Access denied" when wrong mask.
+  END     — One screen: "You got in. You had to wear their face to do it. You got out. The door still only opens for the right face."
+  OPTIONAL — "Inspired by how often access depends on the mask we wear." + NGO link.
+
+----------------------------------------
+END OF DOCUMENT
+----------------------------------------

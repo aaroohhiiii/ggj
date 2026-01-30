@@ -1,0 +1,186 @@
+WHERE TO GET GAME ASSETS (GENERAL)
+==================================
+Sources for 3D models, 2D art, sound effects, music, textures. Free and paid. Check each site's license before commercial use.
+
+----------------------------------------
+1. ALL-IN-ONE / MULTI-TYPE
+----------------------------------------
+
+OpenGameArt.org
+  https://opengameart.org/
+  Free 2D, 3D, textures, music, sound effects, concept art. Multiple licenses (CC, GPL, etc.). Forums and tutorials. Check per-asset license.
+
+itch.io (Game Assets)
+  https://itch.io/game-assets
+  Filter by: free, paid, CC0, type (2D, 3D, sound, music), tag (Godot, pixel art, low-poly). Huge variety. Check each asset page for license.
+
+Kenney
+  https://kenney.nl/
+  https://kenney.itch.io/
+  Huge free packs: 2D sprites, 3D models, UI, audio, fonts. CC0 (no attribution required). Consistent clean style. Also paid "All-in-1" bundle on itch.
+
+FreeGameAssets.com
+  https://www.freegameassets.com/
+  Curated list of free game assets. Links to other sites. Good starting point.
+
+Art Game Sound (CC0 search)
+  https://artgamesound.com/
+  Search app: 350,000+ CC0 assets (sounds, music, 3D, 2D, textures). Aggregates from multiple sources. Filter by type.
+
+Game Assets for the People
+  https://gameassets.joshmoody.org/
+  Curated CC0: sprites, 3D models, music, sound effects. Public domain, no attribution required.
+
+----------------------------------------
+2. 3D MODELS
+----------------------------------------
+
+Sketchfab
+  https://sketchfab.com/
+  Filter "Downloadable" + "Free". Characters, props, environments. glTF, FBX, OBJ. License per model (CC BY, CC0, etc.). Log in to download.
+
+Poly Pizza
+  https://poly.pizza/
+  Free low-poly 3D models. CC0. Good for stylized / indie look.
+
+Free3D
+  https://free3d.com/
+  Free 3D models. Multiple formats (FBX, OBJ, Blender). License varies per model — check before commercial use.
+
+Poly Haven
+  https://polyhaven.com/models
+  Free 3D models, textures, HDRIs. CC0. High quality. Also: polyhaven.com/textures , polyhaven.com/hdris
+
+Quaternius (itch / site)
+  https://quaternius.itch.io/
+  Free low-poly 3D packs: characters, creatures, environments. CC0. Stylized, game-ready.
+
+Mixamo (Adobe)
+  https://www.mixamo.com/
+  Free rigged characters + 2500+ animations. Sign in with Adobe ID. Export FBX. Use in Blender then Godot, or import FBX into Godot. Great for character animation.
+
+----------------------------------------
+3. 2D ART / SPRITES / UI
+----------------------------------------
+
+OpenGameArt.org
+  https://opengameart.org/
+  Sprites, tilesets, character sheets, UI. Filter by 2D, license.
+
+itch.io
+  https://itch.io/game-assets/tag-2d
+  Pixel art, vector, UI packs. Many free / CC0. Filter by "free" and "CC0".
+
+Kenney
+  https://kenney.nl/assets
+  2D sprites, UI, tilesets, fonts. CC0. Consistent style.
+
+Craftpix (free section)
+  https://craftpix.net/freebies/
+  Some free 2D game art packs. Check license (free for personal/sometimes commercial with attribution).
+
+----------------------------------------
+4. SOUND EFFECTS
+----------------------------------------
+
+Freesound
+  https://freesound.org/
+  Huge library. Licenses: CC0 (no attribution), CC BY (attribution required), CC BY-NC (non-commercial only). Filter by license. Check each sound for commercial use.
+
+OpenGameArt.org
+  https://opengameart.org/
+  Sound effects, UI sounds. Various licenses.
+
+itch.io
+  https://itch.io/game-assets/sound-effects
+  Free and paid SFX packs. Filter CC0 for no-attribution.
+
+Kenney
+  https://kenney.nl/assets
+  Sound effect packs. CC0. Clean, game-style sounds.
+
+----------------------------------------
+5. MUSIC
+----------------------------------------
+
+OpenGameArt.org
+  https://opengameart.org/
+  Music tracks, loops. Check license per track.
+
+itch.io
+  https://itch.io/game-assets/music
+  Free and paid game music. Filter by license.
+
+Kenney
+  https://kenney.nl/assets
+  Music loops. CC0.
+
+Free Music Archive (FMA)
+  https://freemusicarchive.org/
+  Various licenses. Filter by "Commercial use allowed" or similar.
+
+Pixabay Music
+  https://pixabay.com/music/
+  Free for commercial use. Check their license page.
+
+----------------------------------------
+6. TEXTURES / MATERIALS
+----------------------------------------
+
+Poly Haven
+  https://polyhaven.com/textures
+  PBR textures. CC0. High quality.
+
+OpenGameArt.org
+  https://opengameart.org/
+  Textures, tilesets. Various licenses.
+
+AmbientCG (formerly CC0 Textures)
+  https://ambientcg.com/
+  CC0 PBR textures. Widely used.
+
+----------------------------------------
+7. GODOT-SPECIFIC
+----------------------------------------
+
+Godot Asset Library (official)
+  https://godotengine.org/asset-library
+  Plugins, demos, assets. Filter by 3D, 2D, license (MIT, CC0, GPL). Integrates with Godot editor.
+
+Godot Forum — Free assets thread
+  https://forum.godotengine.org/t/free-2d-and-3d-game-assets/110123
+  Community-shared free assets. Check each post for license.
+
+itch.io — Godot tag
+  https://itch.io/game-assets/free/tag-godot
+  Free assets tagged for Godot. Sprites, demos, templates.
+
+GDQuest (GitHub / itch)
+  https://github.com/GDQuest
+  Free Godot demos and assets. e.g. godot-4-3d-characters — MIT / CC-BY. Check each repo.
+
+----------------------------------------
+8. LICENSES — QUICK REFERENCE
+----------------------------------------
+
+CC0 / Public domain — Use commercially, no attribution. Easiest.
+CC BY — Use commercially, must credit author.
+CC BY-NC — Non-commercial only. Do NOT use in paid games without permission.
+GPL / MIT — Code/asset licenses. GPL can require open-sourcing your project in some cases; MIT is permissive.
+"Royalty-free" — Usually one-time use; read the specific license.
+
+Always check the asset page or pack for the exact license before shipping a commercial game.
+
+----------------------------------------
+9. RECOMMENDED FOR MASK SWAP (48H JAM)
+----------------------------------------
+
+3D character: Mixamo (rigged + animations) or Quaternius / Kenney low-poly.
+Environment: Kenney 3D, Poly Pizza, or simple CSG in Godot + Poly Haven textures.
+Sound effects: Kenney or Freesound (filter CC0 / CC BY).
+Music: Kenney loops or one track from itch.io CC0.
+UI: Kenney UI pack. Keep it minimal.
+
+----------------------------------------
+END OF DOCUMENT
+----------------------------------------

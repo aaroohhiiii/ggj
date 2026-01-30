@@ -1,0 +1,278 @@
+MASK SWAP — FINAL GAME FLOW & FULL IMPLEMENTATION
+=================================================
+One document: what the game does (final flow) + how to build it in Godot (implementation). Use this as the master reference for making the game.
+
+----------------------------------------
+PART 1 — FINAL GAME FLOW
+----------------------------------------
+
+1.1 OVERVIEW
+  • Goal: Infiltrate a facility across 3 levels. Steal masks (Guard, Scientist, Janitor) to get access. Reach the vault. Take the prize. Win.
+  • Masks: Guard (opens guard doors, guards ignore you). Scientist (hack terminals). Janitor (enter vents). One mask equipped at a time.
+  • Win: Complete the final action in Level 3 (take prize / hack main terminal).
+
+1.2 FLOW DIAGRAM (FINAL)
+  [MAIN MENU] → [OPENING TEXT] → [LEVEL 1]
+  LEVEL 1: [Spawn exterior] → [Get Guard mask] → [Open main door] → [Cross lobby] → [Reach L2 door] → [Load Level 2]
+  LEVEL 2: [Spawn corridors] → [Find Scientist] → [Take Scientist mask] → [Hack terminal] → [Reach L3 exit] → [Load Level 3]
+  LEVEL 3: [Spawn inner zone] → [Navigate to vault] → [Hack vault terminal] → [Enter vault] → [Take prize] → [WIN] → [ENDING TEXT]
+
+1.3 LEVEL-BY-LEVEL (FINAL)
+  LEVEL 1 — Get in
+    Spawn: Exterior. No mask (or civilian).
+    Do: Locate guard → sneak behind → takedown → take Guard mask. Open main door (Guard only). Enter lobby. Cross lobby (guards ignore). Reach door to L2. Interact → "Scientist clearance required" → load Level 2.
+  LEVEL 2 — Get deeper
+    Spawn: Corridors. Player has Guard mask (or give Guard mask pickup at start if not carrying state).
+    Do: Find Scientist → sneak behind → takedown → take Scientist mask. Reach locked door + terminal. Hack terminal (Scientist only). Door opens. Reach L3 exit. Load Level 3.
+  LEVEL 3 — Get the prize
+    Spawn: Inner zone. Player has Guard + Scientist (or pickups at start).
+    Do: Navigate to vault room. Hack vault terminal (Scientist). Vault opens. Enter. Interact with prize. Win. Show ending text. Return to menu or "Mission complete."
+
+1.4 STORYLINE PLACEMENT (FINAL)
+  • Before Level 1: Opening screen — "They only let in the right face. So you wear it. Get in. Reach what you came for. Get out."
+  • Doors/terminals (wrong mask): "Authorised personnel only." / "Access denied."
+  • Optional: One NPC line before takedown. One line when taking Janitor mask (if used).
+  • After win: Ending screen — "You got in. You had to wear their face to do it. You got out. The door still only opens for the right face."
+  • Optional: "Inspired by how often access depends on the mask we wear." + NGO link.
+
+----------------------------------------
+PART 2 — IMPLEMENTATION ORDER (WHAT TO BUILD WHEN)
+----------------------------------------
+
+  PHASE 1 — CORE (Day 1 morning)
+    1. Project setup (Godot 4.x, 3D, Forward+ or compatibility).
+    2. Player: CharacterBody3D, movement (WASD, move_and_slide), camera (third-person follow or first-person).
+    3. Input: E for interact. Optional: crouch, run.
+    4. Test: Move in an empty level. Camera follows.
+
+  PHASE 2 — MASK SYSTEM (Day 1 mid)
+    5. Mask state: global or player variable — current_mask: String ("none", "guard", "scientist", "janitor").
+    6. Mask swap: Interact with "mask source" (body or pickup) → set current_mask, update UI/model.
+    7. UI: Small HUD showing current mask (text or icon). Optional: mask mesh on character (swap mesh when mask changes).
+    8. Test: Place a dummy "mask pickup" or "body" in scene. Interact → mask changes, UI updates.
+
+  PHASE 3 — INTERACTABLES (Day 1 afternoon)
+    9. Guard door: Area3D or RayCast for "in range". If player has Guard mask and presses E → open door (animation or disable collision). Else show "Authorised personnel only."
+    10. Terminal: Same. If Scientist mask + E → "hack" (short delay or instant) → open linked door. Else "Access denied."
+    11. Vent (optional): If Janitor mask + E → teleport player to vent exit or load sub-scene. Else "Maintenance access only."
+    12. Test: One Guard door, one Terminal. Correct mask opens; wrong mask shows message.
+
+  PHASE 4 — NPCs & TAKEDOWN (Day 1 evening)
+    13. Guard: StaticBody3D or CharacterBody3D, simple patrol (move between points or rotate). Script: raycast or area to "see" player. If seen and player mask != "guard" → trigger "caught" (reload level or game over). If player mask == "guard" → ignore.
+    14. Scientist / Janitor: Same as Guard but no chase — idle or short path. Script: if player behind and in range, allow "takedown" (E).
+    15. Takedown: When E pressed near NPC (from behind) → play short animation or instant → set NPC to "unconscious" (disable AI, show body). Body becomes "mask source" — player can interact to take mask.
+    16. Test: One guard, one scientist. Takedown scientist, take mask. Guard sees you without Guard mask → caught. With Guard mask → safe.
+
+  PHASE 5 — LEVEL 1 (Day 2 morning)
+    17. Scene: Level1.tscn. Exterior: ground, walls, main door. Spawn point. One guard (patrol or static). One "main door" (Guard only). Lobby: interior, 1–2 guards, door to Level 2 (locked; show "Scientist clearance required" or auto-transition to L2).
+    18. Level transition: When player reaches L2 door, call get_tree().change_scene_to_file("res://levels/Level2.tscn"). Optional: carry mask state via autoload/singleton so player has Guard mask in L2.
+    19. Opening screen: Before Level 1, show a simple UI or SubViewport with opening text. Button or key to "Start" → load Level 1.
+    20. Test: Play Level 1 from start. Get Guard mask, open door, cross lobby, trigger L2 load.
+
+  PHASE 6 — LEVEL 2 & 3 (Day 2 mid)
+    21. Level 2 scene: Corridors, spawn (with Guard mask or Guard mask pickup). One Scientist NPC. One locked door + terminal. Scientist mask from takedown → hack terminal → door opens. L3 exit trigger → load Level 3.
+    22. Level 3 scene: Inner zone, spawn (Guard + Scientist or pickups). Path to vault room. Vault door + terminal (Scientist hack). Prize object (Area3D). Interact with prize → set win flag, show ending screen.
+    23. Ending screen: UI with ending text. Button "Main menu" or "Play again."
+    24. Test: Full run L1 → L2 → L3 → win.
+
+  PHASE 7 — POLISH (Day 2 afternoon/evening)
+    25. Sound: Mask swap, door open, terminal hack, takedown, caught, footstep (optional). One music track for levels.
+    26. Feedback: First mask equip — clear sound + optional line "You wear their face." Wrong mask at door — "Authorised personnel only." Caught — red flash or sound.
+    27. Storyline: Paste opening and ending text from mask_swap_storyline.txt. Door/terminal messages.
+    28. Build: Export for desktop (and optionally web). Test full run. Fix critical bugs.
+
+----------------------------------------
+PART 3 — SCENE STRUCTURE & NODES (GODOT)
+----------------------------------------
+
+3.1 PROJECT FOLDER STRUCTURE
+  res://
+    main.tscn              (or main menu + opening)
+    levels/
+      Level1.tscn
+      Level2.tscn
+      Level3.tscn
+    scenes/
+      player.tscn
+      guard.tscn
+      scientist.tscn
+      door_guard.tscn
+      terminal.tscn
+      prize.tscn
+    scripts/
+      player.gd
+      guard.gd
+      scientist.gd
+      door_guard.gd
+      terminal.gd
+      prize.gd
+    ui/
+      hud.tscn
+      opening_screen.tscn
+      ending_screen.tscn
+    autoload/
+      game_state.gd        (optional: current_mask, current_level)
+    assets/
+      models/
+      audio/
+
+3.2 PLAYER SCENE (player.tscn)
+  CharacterBody3D (Player)
+    CollisionShape3D
+    MeshInstance3D (or sub-scene for character + mask mesh)
+    Camera3D (or SpringArm3D + Camera3D for third-person)
+    RayCast3D (optional, for interact detection — forward)
+  Script: player.gd
+    - _physics_process: move_and_slide(), input for E (interact)
+    - current_mask: String
+    - _interact(): raycast or area to get "interactable" in range; call interact() on it
+    - take_mask(mask_type): set current_mask, update UI, play sound
+
+3.3 GUARD DOOR (door_guard.tscn)
+  StaticBody3D or Node3D
+    CollisionShape3D (door block)
+    Area3D (trigger for "in range" — optional)
+  Script: door_guard.gd
+    - required_mask = "guard"
+    - _ready: closed
+    - when player in range and player.current_mask == required_mask: show prompt "Press E to open"
+    - on E: open door (animation or move door / disable collision), play sound
+    - if player.current_mask != required_mask and player tries: show "Authorised personnel only." (UI or label)
+
+3.4 TERMINAL (terminal.gd)
+  Node3D
+    Area3D (player in range)
+    (Optional: mesh for terminal)
+  Script: terminal.gd
+    - required_mask = "scientist"
+    - linked_door: NodePath to door to open when hacked
+    - on E with Scientist mask: "Hack" (delay or instant), open linked_door, play sound
+    - else: show "Access denied."
+
+3.5 GUARD NPC (guard.gd)
+  CharacterBody3D or StaticBody3D
+    CollisionShape3D
+    RayCast3D (forward, or multiple raycasts for cone) — "Do I see player?"
+    Area3D (optional, for takedown range from behind)
+  Script: guard.gd
+    - patrol: move between points or rotate
+    - _process: if raycast sees player and player.current_mask != "guard" → emit_signal("player_seen") or call game_over()
+    - if player behind and in takedown range: show "Press E to takedown" (or auto-allow E from player script)
+  Takedown: Handled by player — when E and in range of guard from behind, call guard.takedown(). Guard sets state to "unconscious", spawns or shows "body" node that has mask_source (Guard mask). Player can then interact with body to take mask.
+
+3.6 SCIENTIST NPC (scientist.gd)
+  Same as Guard but no "see player → chase". Only: idle or short path. Takedown from behind → body with Scientist mask. Player interacts with body to take Scientist mask.
+
+3.7 MASK SOURCE (body after takedown)
+  Node3D (or Area3D)
+    mask_type = "guard" or "scientist" or "janitor"
+  When player interacts: player.take_mask(mask_type). Optionally hide body or leave it.
+
+3.8 PRIZE (Level 3)
+  Area3D
+  Script: prize.gd
+    - When player in range and E: emit_signal("win") or call GameState.win() → show ending screen, change scene to ending or main menu.
+
+3.9 LEVEL TRANSITION
+  Area3D at L2 door (Level 1) — when player enters, get_tree().change_scene_to_file("res://levels/Level2.tscn"). Optional: GameState.current_mask = player.current_mask so Level 2 player starts with Guard mask.
+  Same for L2 → L3, and L3 win → ending scene.
+
+----------------------------------------
+PART 4 — KEY LOGIC (PSEUDOCODE)
+----------------------------------------
+
+4.1 PLAYER — INTERACT
+  func _interact():
+    var target = get_interactable_in_range()  # raycast or area overlap
+    if target == null: return
+    if target is MaskSource: take_mask(target.mask_type)
+    if target is DoorGuard: target.try_open(self)
+    if target is Terminal: target.try_hack(self)
+    if target is TakedownNPC: target.takedown()
+
+4.2 DOOR — TRY OPEN
+  func try_open(player):
+    if player.current_mask == required_mask:
+      open()  # animate or disable collision
+    else:
+      show_message("Authorised personnel only.")
+
+4.3 GUARD — DETECTION
+  func _process(_delta):
+    if state == "unconscious": return
+    if raycast_sees_player() and player.current_mask != "guard":
+      game_over()
+
+4.4 TAKEDOWN (from player or NPC)
+  When player presses E behind NPC: NPC.takedown() → NPC.state = "unconscious", NPC.visible = false or replace with "body" node. Body has MaskSource with mask_type. Player can then E on body to take mask.
+
+----------------------------------------
+PART 5 — ASSETS CHECKLIST
+----------------------------------------
+
+  [ ] Player character (low-poly or capsule for greybox).
+  [ ] Mask meshes or UI icons (Guard, Scientist, Janitor) — or coloured placeholder.
+  [ ] Level 1: Exterior ground/walls, door, lobby interior.
+  [ ] Level 2: Corridor walls, terminal prop (optional).
+  [ ] Level 3: Vault room, prize prop (e.g. briefcase, item).
+  [ ] NPC: Guard, Scientist (and Janitor if used) — simple humanoid or capsule; or use same mesh + different material.
+  [ ] Sound: mask_swap, door_open, terminal_hack, takedown, caught. One music loop.
+  [ ] UI: Opening screen, ending screen, HUD (current mask), prompt ("Press E to...").
+
+  See where_to_get_game_assets.txt for sources (Kenney, Mixamo, Poly Haven, etc.).
+
+----------------------------------------
+PART 6 — STORYLINE INTEGRATION (WHERE TEXT GOES)
+----------------------------------------
+
+  • Opening: opening_screen.tscn — Label or RichTextLabel with "They only let in the right face. So you wear it. Get in. Reach what you came for. Get out." Button "Start" → load Level 1.
+  • Doors/terminals: In door_guard.gd and terminal.gd — when wrong mask, show "Authorised personnel only." / "Access denied." (on-screen Label or popup).
+  • Ending: ending_screen.tscn — "You got in. You had to wear their face to do it. You got out. The door still only opens for the right face." Button "Main menu."
+  • Optional: One NPC line before takedown (in scientist.gd or guard.gd — when player in range from front, show one line). One line when taking Janitor mask (in player.gd take_mask when mask_type == "janitor").
+
+----------------------------------------
+PART 7 — TESTING CHECKLIST
+----------------------------------------
+
+  [ ] Move and camera work in empty scene.
+  [ ] Interact (E) detects mask source / door / terminal.
+  [ ] Take mask → current_mask updates, UI updates.
+  [ ] Guard door opens only with Guard mask; wrong mask shows message.
+  [ ] Terminal hacks only with Scientist mask; wrong mask shows message.
+  [ ] Guard sees player without Guard mask → caught (game over or reload).
+  [ ] Guard ignores player with Guard mask.
+  [ ] Takedown scientist → body appears → take Scientist mask.
+  [ ] Level 1: Full run to L2 transition.
+  [ ] Level 2: Full run to L3 transition.
+  [ ] Level 3: Reach vault, hack, take prize → win → ending screen.
+  [ ] Opening and ending text display correctly.
+  [ ] Export build runs without critical errors.
+
+----------------------------------------
+PART 8 — 48H TIMELINE (SUGGESTED)
+----------------------------------------
+
+  DAY 1
+  -----
+  AM:   Phase 1 (player, camera, input) + Phase 2 (mask state, swap, UI).
+  Mid:  Phase 3 (Guard door, Terminal). Test interactables.
+  PM:   Phase 4 (Guard, Scientist, takedown, detection). Test catch and takedown.
+  Eve:  Phase 5 start — Level 1 greybox, one guard, main door, lobby, L2 transition.
+
+  DAY 2
+  -----
+  AM:   Phase 5 finish (Level 1 playable) + Phase 6 (Level 2, Level 3, win, ending screen).
+  Mid:  Phase 6 finish. Full run L1→L2→L3→win. Fix blockers.
+  PM:   Phase 7 (sound, feedback, storyline text, export). Final test.
+
+----------------------------------------
+PART 9 — SUMMARY
+----------------------------------------
+
+  FINAL FLOW: Opening → L1 (get Guard, open door, lobby, L2) → L2 (get Scientist, hack terminal, L3) → L3 (vault, hack, prize, win) → Ending.
+  IMPLEMENTATION: Player + camera → Mask system → Doors/terminals → NPCs + takedown + detection → Level 1 → Level 2 → Level 3 → Polish.
+  REFERENCE: mask_swap_full_flow_3_levels.txt (level detail), mask_swap_storyline.txt (text), where_to_get_game_assets.txt (assets).
+
+----------------------------------------
+END OF DOCUMENT
+----------------------------------------

@@ -1,0 +1,107 @@
+MASK-THEMED GAMES — LINKS & REPOS
+=================================
+Reference for Mask Swap / mask-themed hackathon. GitHub repos + other game links.
+
+----------------------------------------
+GITHUB — MASK-THEMED GAME REPOS
+----------------------------------------
+
+Mask-Dash (Godot)
+  https://github.com/Link07109/Mask-Dash
+  Platformer: student during pandemic, reach class while avoiding COVID. WASD + Space. ITCS 4230 project.
+
+Tomb of the Mask Clone (Godot)
+  https://github.com/needJobCoder/TombOfTheMaskClone
+  Clone of Tomb of the Mask to showcase game dev skills. Godot, organized assets/levels/scenes/scripts.
+
+The Masked Man (Godot, GitHub Game Off 2019)
+  https://github.com/quiji/the_masked_man
+  Jam entry. Godot project: characters, levels, GUI, music, SFX, shaders.
+
+Tomb of the Mask — other clones (various engines)
+  https://github.com/Aom92/smolToTMclone          (Java, simple clone)
+  https://github.com/AndriusSurvila/Tomb-Of-The-Mask  (Unity, WebGL builds)
+  https://github.com/Pixel-Man360/Tomb-of-The-Mask-Clone  (Unity, 5 levels)
+  https://github.com/nhoffmann/rusty-tomb-of-the-mask    (Rust/Bevy)
+
+MaskGame (experimental)
+  https://github.com/KyleDulce/MaskGame
+  Kyle and Hanna experimental project. GPL-3.0.
+
+----------------------------------------
+GITHUB — GODOT MASK / STEALTH-RELATED TOOLS
+----------------------------------------
+
+GoMask2D (Godot plugin)
+  https://github.com/davidas13/GoMask2D
+  Create texture masks from hierarchical nodes. Useful for masking/visibility.
+
+Godot Light Mask Tutorial (Godot 4)
+  https://github.com/compmstr/GodotLightMaskTutorial
+  Masks lit area based on player line of sight. Assets, scenes, scripts, shaders.
+
+----------------------------------------
+GITHUB — OTHER MASK GAMES (WEB / OTHER)
+----------------------------------------
+
+covid19-mask-game (HTML5/JS)
+  https://github.com/rockstartushar/covid19-mask-game.github.io
+  Catch masks, sound effects, GitHub Pages.
+
+web-face-mask-game-demo (HTML5, Flint)
+  https://github.com/openflint/web-face-mask-game-demo
+  Multi-device face mask game. Apache-2.0. Playable: openflint.github.io/web-face-mask-game-demo/sender.html
+
+facial_mask_game_demo (Python, face detection)
+  https://github.com/Circle-ma/facial_mask_game_demo
+  Facial detection + mask rendering, MTCNN, BFM. Interactive mask gameplay.
+
+----------------------------------------
+STEAM / COMMERCIAL — MASK / MASQUERADE GAMES
+----------------------------------------
+
+Masquerade
+  https://store.steampowered.com/app/3823440/Masquerade/
+
+The Masquerade
+  https://store.steampowered.com/app/3769710/The_Masquerade/
+
+Masquerade: Hell Academy
+  https://store.steampowered.com/app/2764150/Masquerade_Hell_Academy/
+
+Vampire: The Masquerade - Bloodlines
+  https://store.steampowered.com/app/2600/
+  Classic: "Masquerade" = hide vampire nature from society. Disguise / social stealth. Good reference for "mask as rule" and disguise mechanics.
+
+----------------------------------------
+REFERENCE — SOCIAL STEALTH & MECHANICS
+----------------------------------------
+
+Best Social Stealth Games (Gamerant)
+  https://gamerant.com/best-social-stealth-games/
+  Lists games that blend in via disguises/behavior (Hitman, VtMB, etc.). Useful for design ideas.
+
+Vampire Bloodlines — Disguise / Obfuscate (Steam Community)
+  https://steamcommunity.com/sharedfiles/filedetails/?id=430080719
+  Guide: Understanding the Disguise Kit. Mechanics reference.
+
+VtMB Obfuscate (Fandom wiki)
+  https://vtmb.fandom.com/wiki/Obfuscate
+  Invisibility / perception mechanics. Mental "mask" rather than physical.
+
+----------------------------------------
+QUICK REFERENCE FOR MASK SWAP
+----------------------------------------
+
+Closest gameplay reference (steal mask / use ability to progress):
+  • Tomb of the Mask clones — mask as core mechanic (different theme: arcade).
+  • The Masked Man (Godot) — mask-themed jam game, structure/scenes.
+  • Vampire: The Masquerade — disguise/identity as rule; "masquerade" = don’t break the mask.
+
+Godot-specific:
+  • Mask-Dash, TombOfTheMaskClone, the_masked_man — project layout, Godot patterns.
+  • GoMask2D, GodotLightMaskTutorial — if you need visibility/mask shaders (e.g. "cracked mask" effect).
+
+----------------------------------------
+END OF DOCUMENT
+----------------------------------------

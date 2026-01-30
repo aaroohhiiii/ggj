@@ -1,0 +1,122 @@
+MASK SWAP — FULL GAME FLOW
+==========================
+Theme: Mask | Platform: Godot 3D | Scope: 48-hour hackathon
+
+----------------------------------------
+1. CORE CONCEPT
+----------------------------------------
+
+You are an infiltrator. You progress by stealing masks from NPCs. Each mask gives you that person's "role" — and only with the right mask can you pass certain obstacles or use certain objects.
+
+The mask is not cosmetic. The mask is the key. Swap mask = gain access = progress.
+
+----------------------------------------
+2. HIGH-LEVEL FLOW (START TO FINISH)
+----------------------------------------
+
+START
+  → Player spawns in a restricted area (e.g. outside the building, or in a lobby).
+  → Goal is clear: reach the objective (e.g. "the vault", "the target's room", "the exit").
+  → Some doors/vents/terminals are locked or restricted. Player cannot proceed yet.
+
+MID GAME
+  → Player finds or steals Mask A (e.g. Guard).
+  → Wearing Guard mask: guard doors open, guards ignore you (or treat you as ally).
+  → Player uses this to reach a new area.
+  → In that area: new obstacle (e.g. vent, locked terminal). Need Mask B (e.g. Janitor, Scientist).
+  → Player finds/steals Mask B. Uses it to progress further.
+  → Repeat for 2–3 masks total. Each mask unlocks new paths or interactions.
+
+END GAME
+  → Player has reached the objective (vault, target, exit).
+  → One final action: steal the item, neutralize the target, or escape.
+  → Win.
+
+----------------------------------------
+3. MOMENT-TO-MOMENT PLAY
+----------------------------------------
+
+MOVEMENT
+  → Third-person (or first-person). Walk, maybe run, maybe crouch.
+  → No combat, or minimal (e.g. one stealth takedown to steal a mask). Keep it simple.
+
+MASK SWAP
+  → Approach an unconscious NPC / a "mask pickup" (e.g. on a hook, in a locker).
+  → Interact (E / prompt). Player now "wears" that mask.
+  → Only one mask at a time. Swapping replaces current mask (or drop current, pick up new).
+  → Visual: character's face/mask model changes. Optional: short UI or text ("Guard mask equipped").
+
+INTERACTIONS (MASK-GATED)
+  → Guard door: only opens when wearing Guard mask (or with Guard key — we use mask as key).
+  → Vent / small passage: only "Janitor" or "Maintenance" mask can enter (they have access).
+  → Terminal: only "Scientist" or "Tech" mask can hack it (opens door, disables camera, etc.).
+  → Optional: some areas are "restricted" — NPCs become hostile if you're in the wrong mask, or only allow you in with the right mask.
+
+NPC BEHAVIOUR (SIMPLE)
+  → Guards: patrol. If they see you without a guard mask (or as intruder), they chase / alert. If you wear guard mask, they ignore you or greet you.
+  → Scientists / Janitors: stay in zones, maybe idle or walk. Steal mask when they're alone (takedown or pickpocket from behind).
+  → No complex AI: "see player → check mask → ignore or chase" is enough.
+
+----------------------------------------
+4. EXAMPLE LEVEL FLOW (LINEAR)
+----------------------------------------
+
+AREA 1 — OUTSIDE / LOBBY
+  → Player has no mask (or a "civilian" mask that doesn't open anything).
+  → One guard at a door. Door is "Guard only". Player must get a Guard mask.
+  → How: sneak behind the guard, takedown, steal mask. Or find a guard alone in a side room.
+  → Put on Guard mask. Now the door opens when you approach. Enter.
+
+AREA 2 — CORRIDORS / OFFICES
+  → Guards patrol. With Guard mask, they ignore you.
+  → Goal: reach the "Tech" or "Scientist" area. A vent or a terminal blocks the path.
+  → Vent: "Maintenance access only". Find a Janitor mask (e.g. janitor in a closet). Steal it. Enter vent.
+  → OR Terminal: "Authorized personnel only". Find Scientist. Steal mask. Hack terminal. Door opens.
+
+AREA 3 — INNER ZONE / VAULT
+  → One more obstacle or none. Reach the objective: vault door (open with Scientist hack?) or target's room.
+  → Final action: grab the item / complete the mission. Win.
+
+----------------------------------------
+5. RULES SUMMARY
+----------------------------------------
+
+  • One mask equipped at a time.
+  • Each mask type enables specific interactions (doors, vents, terminals, or safe passage past certain NPCs).
+  • Steal masks by interacting with downed NPCs or mask pickups.
+  • No mask = no special access. Wrong mask = no access to that lock/vent/terminal.
+  • Win = reach objective and perform final action.
+
+----------------------------------------
+6. FEEDBACK & UI (MINIMAL)
+----------------------------------------
+
+  • Current mask: always visible on character model. Optional: small icon or name on screen ("Guard", "Scientist").
+  • Interact prompts: "Press E to take Guard mask", "Press E to open (Guard only)", "Press E to hack terminal (Scientist only)".
+  • If player tries restricted action with wrong mask: "You need the right mask" or door simply doesn't open.
+  • Alert state (if guards chase): simple "detected" or red screen / sound. Escape or reload.
+
+----------------------------------------
+7. SCOPE FOR 48 HOURS
+----------------------------------------
+
+  • 1 small level: 3–4 connected areas (e.g. lobby → corridor → inner room → objective).
+  • 2–3 mask types: e.g. Guard, Scientist, Janitor (or Guard, Tech, Cleaner). Each unlocks 1–2 things.
+  • 1 objective: reach the vault / target / exit and do one action.
+  • Simple NPCs: patrol or idle; "see player + mask check" for ignore/chase.
+  • No bosses, no combat system beyond one takedown to steal mask.
+  • Polish: lighting, one music track, clear prompts. Strong mood > content volume.
+
+----------------------------------------
+8. FULL FLOW DIAGRAM (TEXT)
+----------------------------------------
+
+  [SPAWN] → [Explore Area 1] → [Get Guard Mask] → [Open Guard Door]
+       → [Explore Area 2] → [Get Scientist/Janitor Mask] → [Use Vent or Terminal]
+       → [Explore Area 3] → [Reach Objective] → [Final Action] → [WIN]
+
+  At each step: wrong mask = blocked. Right mask = progress.
+
+----------------------------------------
+END OF DOCUMENT
+----------------------------------------
