@@ -1,0 +1,144 @@
+MASK SWAP — BASE LEVEL ASSETS LIST
+==================================
+Minimum assets to start. File formats for 3D game (Godot 4).
+
+----------------------------------------
+FILE FORMATS FOR 3D (GODOT 4)
+----------------------------------------
+
+  3D MODELS (meshes, characters, props)
+    • Preferred: glTF 2.0 (.glb or .gltf) — native in Godot, best import
+    • Also OK: FBX (.fbx) — Godot imports; use for Mixamo/Kenney
+    • Also OK: OBJ (.obj) — geometry only; no skeleton/anim
+
+  TEXTURES (images for materials)
+    • PNG (.png) or JPEG (.jpg) — albedo/diffuse
+    • PNG for normal maps, roughness, etc.
+    • Use 512x512 or 1024x1024 for base level
+
+  AUDIO
+    • Sound effects: WAV (.wav) or OGG (.ogg) — OGG smaller
+    • Music: OGG (.ogg) or MP3 (.mp3) — OGG preferred in Godot
+
+  UI / ICONS
+    • PNG (.png) — transparent background for icons
+    • 64x64 or 128x128 for HUD mask icons
+
+----------------------------------------
+BASE LEVEL — ASSETS BY FOLDER
+----------------------------------------
+
+assets/3d/characters/player/
+  • player_model.glb (or .fbx)
+    Format: glTF or FBX. One rigged humanoid (for movement). Can be capsule/placeholder at first.
+  • (Optional) player_walk.glb or .fbx — walk animation
+
+assets/3d/characters/npcs/
+  • guard_model.glb (or .fbx)
+    Format: glTF or FBX. Can reuse same mesh as player with different material.
+  • scientist_model.glb (or .fbx)
+    Format: glTF or FBX. Same as above for base level.
+
+assets/3d/characters/masks/
+  • mask_guard.png
+    Format: PNG. Icon for HUD (e.g. 64x64). Red or distinct colour.
+  • mask_scientist.png
+    Format: PNG. Icon for HUD (e.g. 64x64). Blue or distinct colour.
+  • mask_janitor.png (optional for base)
+    Format: PNG. Icon for HUD. Green or distinct colour.
+
+assets/3d/environment/level1/
+  • floor_exterior.glb (or .fbx or .obj)
+    Format: glTF/FBX/OBJ. Simple plane or box for ground.
+  • main_door.glb (or .fbx)
+    Format: glTF or FBX. One door model for Guard-only entrance.
+  • (Optional) wall_exterior.glb — walls/fence. glTF/FBX/OBJ.
+
+assets/3d/environment/level2/
+  • corridor_wall.glb (or .fbx or .obj)
+    Format: glTF/FBX/OBJ. One or a few wall segments for corridors.
+  • corridor_floor.glb (optional)
+    Format: glTF/FBX/OBJ. Or reuse level1 floor.
+
+assets/3d/environment/level3/
+  • (Base level: can reuse level2 or leave empty until later.)
+
+assets/3d/props/
+  • door_guard.glb (or .fbx)
+    Format: glTF or FBX. Door that opens with Guard mask. Can be same as main_door.
+  • terminal.glb (or .fbx)
+    Format: glTF or FBX. One terminal/control panel for Scientist hack.
+  • prize.glb (or .fbx)
+    Format: glTF or FBX. One simple prop (briefcase, document, keycard) for Level 3 end.
+
+assets/3d/materials/
+  • (Base level: use default StandardMaterial3D in Godot; add textures later.)
+
+assets/textures/
+  • floor_concrete.png (optional for base)
+    Format: PNG or JPG. 512x512 or 1024x1024. For floor material.
+  • wall_metal.png (optional for base)
+    Format: PNG or JPG. For walls.
+
+assets/ui/
+  • mask_icon_guard.png
+    Format: PNG. 64x64 or 128x128. Transparent. For HUD.
+  • mask_icon_scientist.png
+    Format: PNG. Same size.
+  • mask_icon_janitor.png (optional for base)
+    Format: PNG. Same size.
+
+assets/sounds/
+  • mask_swap.wav (or .ogg)
+    Format: WAV or OGG. Short sound when putting on mask.
+  • door_open.wav (or .ogg)
+    Format: WAV or OGG. When door opens.
+  • terminal_hack.wav (or .ogg)
+    Format: WAV or OGG. When hacking terminal.
+  • takedown.wav (or .ogg)
+    Format: WAV or OGG. When takedown NPC.
+  • caught.wav (or .ogg)
+    Format: WAV or OGG. When guard catches you.
+
+assets/music/
+  • level_ambient.ogg (or .mp3)
+    Format: OGG or MP3. One loop for levels. Can use existing time_for_adventure.mp3 as placeholder.
+
+----------------------------------------
+BASE LEVEL — MINIMUM CHECKLIST (START WITH THIS)
+----------------------------------------
+
+  [ ] assets/3d/characters/player/player_model.glb (or .fbx)
+  [ ] assets/3d/characters/npcs/guard_model.glb (or .fbx) — can duplicate player
+  [ ] assets/3d/characters/npcs/scientist_model.glb (or .fbx) — can duplicate player
+  [ ] assets/3d/characters/masks/mask_guard.png
+  [ ] assets/3d/characters/masks/mask_scientist.png
+  [ ] assets/3d/environment/level1/floor_exterior.glb (or one floor mesh)
+  [ ] assets/3d/environment/level1/main_door.glb
+  [ ] assets/3d/props/door_guard.glb (can be same as main_door)
+  [ ] assets/3d/props/terminal.glb
+  [ ] assets/3d/props/prize.glb
+  [ ] assets/ui/mask_icon_guard.png
+  [ ] assets/ui/mask_icon_scientist.png
+  [ ] assets/sounds/mask_swap.wav
+  [ ] assets/sounds/door_open.wav
+  [ ] assets/sounds/terminal_hack.wav
+  [ ] assets/sounds/takedown.wav
+  [ ] assets/sounds/caught.wav
+  [ ] assets/music/level_ambient.ogg (or use existing .mp3)
+
+----------------------------------------
+FORMAT SUMMARY (QUICK REFERENCE)
+----------------------------------------
+
+  Type           | Format for base level
+  ---------------|------------------------
+  3D model      | .glb or .fbx (prefer .glb)
+  Texture       | .png or .jpg
+  Sound effect  | .wav or .ogg
+  Music         | .ogg or .mp3
+  UI icon       | .png (64x64 or 128x128)
+
+----------------------------------------
+END OF DOCUMENT
+----------------------------------------
