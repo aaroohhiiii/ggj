@@ -1,0 +1,63 @@
+PHASE 1 — DONE (FULL MAKING THE GAME)
+======================================
+What was built and what you need to do.
+
+----------------------------------------
+WHAT WAS CREATED
+----------------------------------------
+
+1. PROJECT SETUP
+   • Main scene set to: res://levels/test_level.tscn
+   • Input map added: interact (E), move_left (A), move_right (D), move_forward (W), move_back (S)
+
+2. FOLDER STRUCTURE
+   • scripts/player.gd
+   • scenes/player.tscn
+   • levels/test_level.tscn
+
+3. PLAYER (scenes/player.tscn)
+   • CharacterBody3D with:
+	 - CollisionShape3D (capsule, radius 0.4, height 1.8)
+	 - MeshInstance3D (capsule — visible placeholder)
+	 - Camera3D (third-person, behind and above)
+   • Script: movement (WASD), mouse look (horizontal), E = interact (placeholder print), mouse capture (Escape toggles)
+
+4. TEST LEVEL (levels/test_level.tscn)
+   • Node3D root
+   • Floor: StaticBody3D with BoxShape3D + BoxMesh (20x1x20)
+   • Player instance at origin
+
+----------------------------------------
+WHAT YOU NEED TO DO NOW
+----------------------------------------
+
+1. OPEN THE PROJECT IN GODOT
+   • Open Godot 4.x
+   • Import or Open the project: first/ (the folder containing project.godot)
+   • Let it import if prompted
+
+2. RUN THE GAME
+   • Press F5 or click Run Project (Play)
+   • You should see: a grey floor, a capsule (player), camera behind you.
+
+3. TEST
+   • WASD — move
+   • Mouse — look left/right (player rotates)
+   • E — print in Output: "E pressed - interact (Phase 1 placeholder)"
+   • Escape — release/capture mouse cursor
+
+4. IF SOMETHING FAILS
+   • Main scene: Project → Project Settings → Application → Run → Main Scene = res://levels/test_level.tscn
+   • Input: Project → Project Settings → Input Map — should have interact, move_left, move_right, move_forward, move_back
+   • If player falls through floor: check Floor has CollisionShape3D and Player has CollisionShape3D
+
+----------------------------------------
+NEXT: PHASE 2
+----------------------------------------
+
+Phase 2 = Mask system: current_mask variable, mask swap from body/pickup, UI (current mask), optional mesh swap on character.
+See mask_swap_final_flow_and_implementation.txt Part 2 — Phase 2.
+
+----------------------------------------
+END
+----------------------------------------

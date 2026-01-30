@@ -1,0 +1,178 @@
+MASK SWAP — FULL ASSET LIST & FILE STRUCTURE
+============================================
+Exactly what assets you need and where they go. Paths are under first/ (your Godot project root).
+
+----------------------------------------
+FULL FOLDER STRUCTURE (WHERE ASSETS GO)
+----------------------------------------
+
+first/
+  assets/
+    3d/
+      characters/
+        player/
+          player_model.fbx          (or .glb) — main character mesh + skeleton
+          player_idle.fbx           (optional) — idle animation
+          player_walk.fbx           (optional) — walk animation
+        npcs/
+          guard_model.fbx           (or .glb) — guard mesh (can reuse player base)
+          scientist_model.fbx       (or .glb) — scientist mesh (can reuse player base)
+          janitor_model.fbx         (optional) — janitor mesh if using vent path
+        masks/
+          mask_guard.png            (or .glb mesh) — Guard mask icon or 3D mesh
+          mask_scientist.png        (or .glb mesh) — Scientist mask icon or 3D mesh
+          mask_janitor.png          (or .glb mesh) — Janitor mask icon or 3D mesh
+      environment/
+        level1/
+          exterior_ground.fbx       (or floor plane in scene)
+          exterior_walls.fbx        (optional) — walls / fence
+          main_door.fbx             (or .glb) — door model for entrance
+        level2/
+          corridor_walls.fbx       (or modular wall pieces)
+          corridor_floor.fbx       (optional)
+        level3/
+          vault_room_walls.fbx      (optional)
+          vault_door.fbx            (optional) — vault door model
+      props/
+        door_guard.fbx              (or .glb) — door that needs Guard mask
+        terminal.fbx                (or .glb) — terminal / control panel
+        vent.fbx                    (optional) — vent hatch if using Janitor
+        prize.fbx                   (or .glb) — final objective (briefcase, item, etc.)
+      materials/
+        (optional — if you use separate texture files)
+    textures/
+        floor_concrete.png          (or .jpg) — floor albedo
+        floor_normal.png            (optional)
+        wall_metal.png              (optional)
+        wall_normal.png             (optional)
+    fonts/
+        (existing: PixelOperator — can keep or replace for UI)
+    ui/
+        hud_mask_icon_guard.png     — HUD icon for Guard mask
+        hud_mask_icon_scientist.png — HUD icon for Scientist mask
+        hud_mask_icon_janitor.png   — HUD icon for Janitor mask
+        hud_mask_icon_none.png      (optional) — no mask / civilian
+        prompt_bg.png               (optional) — background for "Press E to..."
+    music/
+        level_ambient.ogg           (or .mp3) — one loop for levels
+        (existing time_for_adventure.mp3 can be used as placeholder)
+    sounds/
+        mask_swap.wav               — sound when putting on mask
+        door_open.wav               — sound when door opens
+        terminal_hack.wav           — sound when hacking terminal
+        takedown.wav                — sound when takedown
+        caught.wav                  — sound when guard catches you
+        footstep.wav                (optional) — footstep loop
+        interact_fail.wav           (optional) — "Access denied" beep
+  scenes/
+    (existing: player.tscn — will reference assets from assets/3d/...)
+  levels/
+    (existing: test_level.tscn; later Level1, Level2, Level3)
+  scripts/
+  icon.svg
+
+----------------------------------------
+EXACT ASSET LIST (WHAT YOU NEED)
+----------------------------------------
+
+1. CHARACTERS (3D)
+   [ ] 1x humanoid character model (FBX or glTF) — use for PLAYER
+   [ ] Same or variant for GUARD (can be same model, different material/outfit)
+   [ ] Same or variant for SCIENTIST (can be same model, different material/outfit)
+   [ ] (Optional) 1x for JANITOR if using vent path
+   [ ] Animations: idle, walk (and optionally takedown) — from Mixamo or pack
+
+2. MASKS (UI or 3D)
+   [ ] Guard mask — icon (PNG) for HUD, or small 3D mesh to show on character face
+   [ ] Scientist mask — same
+   [ ] Janitor mask — same
+   (Can start with 3 coloured PNGs: e.g. red = guard, blue = scientist, green = janitor)
+
+3. ENVIRONMENT — LEVEL 1
+   [ ] Ground/floor for exterior (plane or mesh)
+   [ ] Walls or fence for exterior (optional)
+   [ ] 1x door model for main entrance (Guard-only door)
+
+4. ENVIRONMENT — LEVEL 2
+   [ ] Corridor walls (modular segments or one mesh)
+   [ ] Floor (can reuse Level 1 floor texture/mesh)
+   [ ] 1x terminal/prop for hackable door
+
+5. ENVIRONMENT — LEVEL 3
+   [ ] Corridor or room leading to vault
+   [ ] Vault door or final door (optional model)
+   [ ] 1x prize prop (briefcase, document, keycard, etc.)
+
+6. PROPS (REUSED ACROSS LEVELS)
+   [ ] Door (Guard) — one model, instance in scenes
+   [ ] Terminal — one model, instance in scenes
+   [ ] (Optional) Vent — one model if using Janitor path
+   [ ] Prize — one model for Level 3 end
+
+7. TEXTURES (OPTIONAL BUT NICE)
+   [ ] Floor texture (concrete, tile, or metal)
+   [ ] Wall texture (optional)
+   (Or use default grey/material until polish phase.)
+
+8. UI
+   [ ] 3 mask icons (Guard, Scientist, Janitor) for HUD
+   [ ] (Optional) Font for prompts — can use existing PixelOperator or system font
+   [ ] (Optional) Simple panel/background for "Press E to..." text
+
+9. AUDIO — SOUND EFFECTS
+   [ ] mask_swap.wav
+   [ ] door_open.wav
+   [ ] terminal_hack.wav
+   [ ] takedown.wav
+   [ ] caught.wav
+   [ ] (Optional) footstep.wav, interact_fail.wav
+
+10. AUDIO — MUSIC
+    [ ] 1x level music loop (ambient or tension) — .ogg or .mp3
+
+----------------------------------------
+MINIMUM VIABLE ASSET LIST (48H JAM)
+----------------------------------------
+
+If you need the smallest set to ship:
+
+  MUST HAVE:
+    • 1x character model (player + NPCs can share)
+    • 1x door model (or use CSG box in Godot)
+    • 1x terminal model (or use CSG box + decal)
+    • 3x mask icons (PNG) for HUD
+    • 1x prize prop (or use simple mesh)
+    • Sounds: mask_swap, door_open, terminal_hack, takedown, caught (5 files)
+    • 1x music loop
+
+  NICE TO HAVE:
+    • Floor/wall textures
+    • Separate guard/scientist meshes or materials
+    • Vent model
+    • Footstep, interact_fail sounds
+    • Custom UI panel
+
+----------------------------------------
+FILE NAMING (RECOMMENDED)
+----------------------------------------
+
+  • Use lowercase, underscores: door_guard.fbx, mask_guard.png
+  • Godot will create .import files next to each asset — don’t delete them
+  • Keep FBX/glTF in assets/3d/...; reference in scenes via path, e.g. res://assets/3d/props/door_guard.fbx
+
+----------------------------------------
+WHERE TO GET EACH (QUICK REFERENCE)
+----------------------------------------
+
+  Characters:       Mixamo, Quaternius Universal Base Characters (see asset_links_proper.txt)
+  Environment:      Kenney Building Kit / Modular Buildings, Delthor Sci-Fi Corridors, CubedBear Interior
+  Door/Terminal:    Sketchfab (free filter), Kenney Game Assets 3
+  Prize:            Kenney props, Sketchfab "briefcase" / "document"
+  Mask icons:       Kenney UI pack, or simple coloured PNGs you make
+  Textures:         Poly Haven, AmbientCG
+  Sounds:           Kenney Sound, Freesound
+  Music:            Kenney Music, itch.io game music free
+
+----------------------------------------
+END OF DOCUMENT
+----------------------------------------

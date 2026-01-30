@@ -11,8 +11,102 @@ config_version=5
 [application]
 
 config/name="first"
+run/main_scene="res://levels/test_level.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[input]
+
+interact={
+"deadzone": 0.5,
+"events": [{
+"alt_pressed": false,
+"ctrl_pressed": false,
+"device": -1,
+"echo": false,
+"key_label": 0,
+"keycode": 69,
+"location": 0,
+"meta_pressed": false,
+"physical_keycode": 69,
+"pressed": true,
+"shift_pressed": false,
+"unicode": 101,
+"window_id": 0
+}]
+}
+move_left={
+"deadzone": 0.5,
+"events": [{
+"alt_pressed": false,
+"ctrl_pressed": false,
+"device": -1,
+"echo": false,
+"key_label": 0,
+"keycode": 65,
+"location": 0,
+"meta_pressed": false,
+"physical_keycode": 65,
+"pressed": true,
+"shift_pressed": false,
+"unicode": 97,
+"window_id": 0
+}]
+}
+move_right={
+"deadzone": 0.5,
+"events": [{
+"alt_pressed": false,
+"ctrl_pressed": false,
+"device": -1,
+"echo": false,
+"key_label": 0,
+"keycode": 68,
+"location": 0,
+"meta_pressed": false,
+"physical_keycode": 68,
+"pressed": true,
+"shift_pressed": false,
+"unicode": 100,
+"window_id": 0
+}]
+}
+move_forward={
+"deadzone": 0.5,
+"events": [{
+"alt_pressed": false,
+"ctrl_pressed": false,
+"device": -1,
+"echo": false,
+"key_label": 0,
+"keycode": 87,
+"location": 0,
+"meta_pressed": false,
+"physical_keycode": 87,
+"pressed": true,
+"shift_pressed": false,
+"unicode": 119,
+"window_id": 0
+}]
+}
+move_back={
+"deadzone": 0.5,
+"events": [{
+"alt_pressed": false,
+"ctrl_pressed": false,
+"device": -1,
+"echo": false,
+"key_label": 0,
+"keycode": 83,
+"location": 0,
+"meta_pressed": false,
+"physical_keycode": 83,
+"pressed": true,
+"shift_pressed": false,
+"unicode": 115,
+"window_id": 0
+}]
+}
 
 [physics]
 
