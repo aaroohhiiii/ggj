@@ -1,0 +1,1 @@
+NPC models: Guard, Scientist, Janitor (e.g. guard_model.glb). Can reuse one humanoid with different materials.

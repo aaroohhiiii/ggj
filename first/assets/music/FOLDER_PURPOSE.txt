@@ -1,0 +1,1 @@
+Music loops for levels (e.g. level_ambient.ogg). OGG or MP3.

@@ -1,0 +1,1 @@
+Player character model and animations (e.g. player_model.glb, walk.fbx). Rigged humanoid for movement.

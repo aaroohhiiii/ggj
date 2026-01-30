@@ -1,0 +1,1 @@
+Fonts for UI text (e.g. prompts, HUD). TTF or OTF.

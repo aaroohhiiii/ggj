@@ -1,0 +1,1 @@
+Reusable props: Guard door, terminal, vent, prize (e.g. door_guard.glb, terminal.glb, prize.glb).

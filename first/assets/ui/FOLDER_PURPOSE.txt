@@ -1,0 +1,1 @@
+HUD and UI assets: mask icons (mask_icon_guard.png), prompt backgrounds, etc.

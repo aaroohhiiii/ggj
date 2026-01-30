@@ -1,0 +1,1 @@
+Floor, wall, and other texture images (e.g. floor_concrete.png). PNG or JPG for materials.

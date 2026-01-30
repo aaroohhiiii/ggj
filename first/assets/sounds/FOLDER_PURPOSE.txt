@@ -1,0 +1,1 @@
+Sound effects: mask_swap, door_open, terminal_hack, takedown, caught, etc. WAV or OGG.

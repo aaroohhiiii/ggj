@@ -1,0 +1,1 @@
+2D sprites (if used). This project is 3D; sprites optional for UI or effects.

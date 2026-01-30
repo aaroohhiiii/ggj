@@ -1,0 +1,1 @@
+Mask icons or 3D meshes for Guard, Scientist, Janitor (e.g. mask_guard.png for HUD).

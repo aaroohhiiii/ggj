@@ -1,0 +1,1 @@
+Optional: shared 3D materials or material resources. Textures usually go in assets/textures.

@@ -1,0 +1,1 @@
+Level 3 environment: vault room, vault door (e.g. vault_room.glb, vault_door.glb).
