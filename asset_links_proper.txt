@@ -1,0 +1,162 @@
+MASK SWAP — PROPER ASSET LINKS
+==============================
+Direct links to free/game-ready assets. Use for environment, characters, props, audio.
+
+----------------------------------------
+1. 3D ENVIRONMENT / BUILDINGS / INTERIORS
+----------------------------------------
+
+Kenney — Building Kit (80+ models, CC0)
+  https://kenney.nl/assets/building-kit
+  Buildings, house elements. FBX/OBJ/glTF. Godot-ready.
+
+Kenney — Modular Buildings (90+ models, CC0)
+  https://kenney-assets.itch.io/modular-buildings
+  OBJ, FBX, glTF. High-rises, modular pieces. Godot/Unity/Unreal.
+
+Kenney — Roguelike Indoors (2D; reference only)
+  https://kenney.nl/assets/roguelike-indoors
+  Indoor tiles. 2D only.
+
+Delthor Games — Free Sci-Fi Corridors (itch.io)
+  https://delthor-games.itch.io/sci-fi-pack
+  Corridors: normal, T, L, 4-way. FBX. Free. Good for facility levels.
+
+CubedBear — Free Low-Poly 3D Room Assets (itch.io)
+  https://cubedbear.itch.io/low-poly-interior
+  30+ models, modular walls/floors, ~2k tris. FBX. Free, no attribution.
+
+Wuwuku — Lowpoly Office Props Pack (itch.io)
+  https://wuwuku.itch.io/lowpoly-modern-office-props-pack
+  Desks, chairs, computers, office props. FBX + Blender. Free (check license).
+
+VNBP — Low Poly 3D Office Set #2 (itch.io)
+  https://vnbp.itch.io/low-poly-3d-office-set-2-vnb
+  Office set. FBX, Unity. Pay what you want (free).
+
+----------------------------------------
+2. 3D CHARACTERS (PLAYER / GUARD / SCIENTIST)
+----------------------------------------
+
+Mixamo (Adobe, free account)
+  https://www.mixamo.com
+  Rigged humans + 2500+ animations. Export FBX (With Skin, 30 FPS). Use in Blender → glTF for Godot, or FBX into Godot.
+
+Quaternius — Universal Base Characters (itch.io, CC0)
+  https://quaternius.itch.io/universal-base-characters
+  6 base characters, 20 hairstyles, humanoid rig. Godot/Unity/Unreal. Name-your-price (free).
+
+Quaternius — All packs (itch.io)
+  https://quaternius.itch.io
+  More character and creature packs. CC0.
+
+Quaternius — Main site
+  https://quaternius.com
+  Same packs, direct from site.
+
+----------------------------------------
+3. PROPS (DOORS, TERMINALS, VENTS)
+----------------------------------------
+
+Sketchfab — Sci-Fi Terminal (free, check license)
+  https://sketchfab.com/3d-models/sci-fi-terminal-78ac9439b01c45eebf0df2c5d16b04bf
+  Download: glTF/FBX. Filter "Downloadable" + "Free" on Sketchfab for more.
+
+Sketchfab — Sci-Fi Doors
+  https://sketchfab.com/3d-models/scifi-doors-pack-vol2-door-01-6ec8e701144d4d3aaabe3110087a8c20
+  Free download. Check license per model.
+
+Sketchfab — Browse free 3D models (filter: downloadable, free)
+  https://sketchfab.com/features/free-3d-models
+  Search: "door", "terminal", "vent", "control panel".
+
+Kenney — Game Assets 3 (general 3D props)
+  https://kenney.itch.io/kenney-game-assets-3
+  Various 3D game props. CC0.
+
+----------------------------------------
+4. TEXTURES / MATERIALS
+----------------------------------------
+
+Poly Haven — Textures (CC0, PBR)
+  https://polyhaven.com/textures
+  Brick, wood, metal, floor, concrete. High-res. CC0.
+
+Poly Haven — All textures
+  https://polyhaven.com/textures/all
+
+AmbientCG — CC0 PBR textures
+  https://ambientcg.com
+  Huge library. CC0. Game-ready.
+
+----------------------------------------
+5. SOUND EFFECTS
+----------------------------------------
+
+Freesound
+  https://freesound.org
+  Huge library. Filter by license: CC0 or CC BY. Account needed to download.
+
+Kenney — Sound packs (CC0)
+  https://kenney.nl/assets
+  Browse "Sound" category. UI, impacts, footsteps. CC0.
+
+itch.io — Free sound effects
+  https://itch.io/game-assets/sound-effects/free
+  Filter: free, CC0 for no attribution.
+
+----------------------------------------
+6. MUSIC
+----------------------------------------
+
+Kenney — Music (CC0)
+  https://kenney.nl/assets
+  Browse "Music". Loops. CC0.
+
+itch.io — Game music free
+  https://itch.io/game-assets/music/free
+  Filter by license.
+
+OpenGameArt — Music
+  https://opengameart.org/art-search-advanced?keys=&title=&field_art_tags_tid=9
+  Free game music. Check license per track.
+
+----------------------------------------
+7. MASK SWAP — RECOMMENDED DOWNLOADS (QUICK LIST)
+----------------------------------------
+
+FOR LEVEL BLOCKOUT / FACILITY:
+  1. Kenney Building Kit or Modular Buildings — https://kenney.nl/assets/building-kit OR https://kenney-assets.itch.io/modular-buildings
+  2. Sci-Fi Corridors (itch.io) — https://delthor-games.itch.io/sci-fi-pack
+  3. Low-Poly Interior (itch.io) — https://cubedbear.itch.io/low-poly-interior
+
+FOR CHARACTERS (PLAYER + GUARD + SCIENTIST):
+  4. Mixamo — https://www.mixamo.com (one rigged character + walk/idle; reuse for all)
+  5. OR Quaternius Universal Base Characters — https://quaternius.itch.io/universal-base-characters
+
+FOR PROPS (DOOR, TERMINAL):
+  6. Sketchfab — search "sci fi door", "terminal", filter Downloadable + Free. Example: https://sketchfab.com/features/free-3d-models
+  7. Kenney Game Assets 3 — https://kenney.itch.io/kenney-game-assets-3
+
+FOR TEXTURES (FLOOR, WALLS):
+  8. Poly Haven — https://polyhaven.com/textures
+
+FOR SOUND (DOOR, HACK, TAKEDOWN, FOOTSTEP):
+  9. Kenney Sound — https://kenney.nl/assets (Sound category)
+  10. Freesound — https://freesound.org (filter CC0)
+
+----------------------------------------
+8. IMPORTING INTO GODOT
+----------------------------------------
+
+  • FBX: Drag .fbx into FileSystem. Godot imports automatically. Use for Mixamo/Kenney FBX.
+  • glTF/GLB: Native. Drag into project. Best for Blender exports.
+  • OBJ: Supported. Drag into project.
+  • Textures: Import as Texture2D. Assign to StandardMaterial3D (albedo, normal, etc.).
+  • Audio: .wav or .ogg in project. Use in AudioStreamPlayer nodes.
+
+  Mixamo → Godot: Export FBX from Mixamo (With Skin, 30 FPS). Import in Godot. For animations, see: https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/importing_scenes.html (skeleton retargeting).
+
+----------------------------------------
+END OF DOCUMENT
+----------------------------------------
