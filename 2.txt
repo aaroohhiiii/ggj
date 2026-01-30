@@ -1,0 +1,87 @@
+🎯 ASSET LINKS FOR MASK SWAP (DOWNLOAD SOURCES)
+1️⃣ Characters (Models + Animations)
+Mixamo — rigged characters & animations
+Use this for your player and NPC rigged models (FBX, animations).
+https://www.mixamo.com/
+Sketchfab — free 3D models collection
+Browse free characters/props of all kinds.
+https://sketchfab.com/haoliu95/collections/free-game-assets-e85a718b2a734bcfb2cfb7c2365af47b82
+Itch.io – 3D asset packs (free)
+Filter by “free + 3D” for characters and props.
+https://itch.io/game-assets/free/tag-3d/tag-godot
+Free 3D Assets Collection on itch.io
+Free stylized models that can be props/environment pieces.
+https://void1gaming.itch.io/free-3d-assets-collection
+2️⃣ Environment Pieces (Level Walls, Props, Doors)
+Kenney 3D Assets (Low-poly) — modular building parts
+https://kenney.nl/assets/category:3D
+Itch.io 3D Low Poly Assets — props/environment
+https://free-game-assets.itch.io/ (scroll 3D / low poly packs)
+Sketchfab Free 3D models — environment parts
+https://sketchfab.com/search?features=downloadable&sort_by=-likeCount&type=models
+Free3D — free download 3D objects
+https://free3d.com/3d-models/
+3️⃣ Textures & Materials
+Poly Haven — PBR textures, HDRIs, free 3D assets
+Polished floor/wall textures or HDRI lighting for outdoor scenes.
+https://polyhaven.com/
+AmbientCG — CC0 PBR texture library
+https://ambientcg.com/
+Textures.com — free texture downloads
+https://www.textures.com/free
+4️⃣ UI Icons & 2D Sprites
+Itch.io 3D + UI assets
+Search “UI”, “icons”, and “3D” tags for HUD elements.
+https://itch.io/game-assets/free/tag-3d/tag-godot
+Game-Icons.net (SVG icon pack) — lots of CC0 icons you can recolor for masks, prompts, etc.
+https://game-icons.net/
+OpenGameArt.org — UI and sprite packs
+https://opengameart.org/
+5️⃣ Sound Effects
+FreeSound.org — sound effects library
+Free SFX you can filter by license (CC0 or CC BY).
+https://freesound.org/
+Kenney Sound Packs (free) — game-friendly SFX
+https://kenney.nl/assets
+Zapsplat — free SFX with attribution
+https://www.zapsplat.com/
+6️⃣ Music (Loops & Tracks)
+FreePD (public domain music)
+https://freepd.com/
+Bensound (free with attribution)
+https://www.bensound.com/
+Kenney Music packs — free music loops
+https://kenney.nl/assets
+📂 EXACT LINKS FOR KEY ASSET TYPES
+To make it even easier, here are links for types you specifically need:
+Characters
+Mixamo rigged characters + animations → https://www.mixamo.com/
+Sketchfab free 3D models (could house actors or props) → https://sketchfab.com/search?features=downloadable&type=models
+Props / Environment
+Kenney 3D building parts → https://kenney.nl/assets/category:3D
+Free3D free object models → https://free3d.com/3d-models/
+Itch.io 3D packs → https://itch.io/game-assets/free/tag-3d/tag-godot
+Textures & Materials
+Poly Haven PBR textures → https://polyhaven.com/
+AmbientCG CC0 PBR textures → https://ambientcg.com/
+UI Icons
+Game-Icons.net SVG icons → https://game-icons.net/
+OpenGameArt.org UI assets → https://opengameart.org/
+Sound Effects
+Freesound free SFX → https://freesound.org/
+Zapsplat free sounds → https://www.zapsplat.com/
+Music
+FreePD music → https://freepd.com/
+Bensound free music → https://www.bensound.com/
+📌 Notes for use (important)
+Always check license on the asset page before using — most are free but some require attribution or restrict commercial use.
+For quickest jam progression, focus first on:
+Mixamo characters
+Kenney 3D environment
+Freesound / Kenney SFX
+Kenney + FreePD music
+That gives you enough to ship a polished prototype without licensing headaches.
+If you want, I can also:
+Generate a copy-paste credit list you can include in your game/jam submission
+Suggest exact picks for each slot (e.g., specific model for Guard, door, terminal)
+Or create a starter Godot project with all references linked
