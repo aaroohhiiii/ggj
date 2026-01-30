@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://drvgac2x38qpa"]
 
 [ext_resource type="Script" uid="uid://scnia2ttxxrk" path="res://scripts/player.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://litfedxsym0t" path="res://scenes/EnvironmentPack/Models/SciFiCorridorsEnd.fbx" id="2_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://c81f6ns8h7s6w" path="res://scenes/EnvironmentPack/Models/SciFiCorridors4Exits.fbx" id="3_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://nqtkrhutw1po" path="res://scenes/EnvironmentPack/Models/SciFiCorridorsT.fbx" id="4_fjrip"]
+[ext_resource type="PackedScene" uid="uid://3mlu53e0aed6" path="res://scenes/EnvironmentPack/Models/SciFiCorridorsNormal.fbx" id="5_smehm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1"]
 radius = 0.4
@@ -23,3 +27,18 @@ mesh = SubResource("CapsuleMesh_1")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1178043354]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 1.2, 3.5)
+
+[node name="SciFiCorridorsEnd" parent="." unique_id=1279123146 instance=ExtResource("2_qlg0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46079338, 0, 2.201179)
+
+[node name="SciFiCorridors4Exits" parent="." unique_id=488324022 instance=ExtResource("3_tuyoq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.61642134, -0.4366833, 1.9143414)
+
+[node name="SciFiCorridorsT" parent="." unique_id=1153589020 instance=ExtResource("4_fjrip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.683199, 0, 0.5481992)
+
+[node name="SciFiCorridorsT2" parent="." unique_id=256963612 instance=ExtResource("4_fjrip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8079766, 0, -2.206483)
+
+[node name="SciFiCorridorsNormal" parent="." unique_id=109318309 instance=ExtResource("5_smehm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0113811, -2.9904437, -3.3441694)
