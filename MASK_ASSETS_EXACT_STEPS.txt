@@ -1,0 +1,107 @@
+MASK ASSETS — EXACT RESOURCES & STEPS
+=====================================
+Where to get mask assets for Mask Swap (Guard, Scientist, Janitor) and exactly what to do.
+
+----------------------------------------
+WHAT YOU NEED
+----------------------------------------
+
+  • 3 HUD icons (PNG): one for Guard, one for Scientist, one for Janitor.
+    Used to show "current mask" on screen (e.g. 64×64 or 128×128).
+
+  • (Optional) 1× 3D mask mesh: if you want a mask on the character's face.
+    Not required for the game to work — HUD icons are enough.
+
+----------------------------------------
+OPTION A — HUD ICONS (RECOMMENDED, SIMPLEST)
+----------------------------------------
+
+1. KENNEY UI PACK (free, CC0)
+
+   Where:  https://kenney.nl/assets/ui-pack
+   Or:     https://kenney-assets.itch.io/ui-pack
+
+   What to do:
+     • Click "Download" (ZIP, ~1.1 MB).
+     • Unzip the file.
+     • Open the folder — you get many PNGs (buttons, panels, icons in several colors).
+     • Pick 3 icons you can use as "mask" badges:
+       - Option 1: Use the same icon (e.g. a badge or circle) in 3 different colors (red, blue, green).
+       - Option 2: Pick 3 different icons (e.g. shield = Guard, flask = Scientist, mop/bucket = Janitor) if the pack has them.
+     • Copy or rename 3 PNGs to:
+         mask_guard.png    (e.g. red or shield icon)
+         mask_scientist.png (e.g. blue or flask icon)
+         mask_janitor.png   (e.g. green or cleaning icon)
+     • Put them in:  first/assets/ui/
+       Or:           first/assets/3d/characters/masks/
+
+   Size: Use 64×64 or 128×128. If the Kenney icons are different size, you can keep them or resize in an image editor.
+
+2. MAKE 3 SIMPLE PNGs (no download)
+
+   If you don't want to use a pack:
+     • Create 3 images (e.g. in GIMP, Krita, or any image editor):
+       - 64×64 or 128×128 pixels.
+       - Solid color: red = Guard, blue = Scientist, green = Janitor.
+       - Optional: add text "G", "S", "J" or a simple mask shape.
+     • Save as PNG (transparent background if you want):
+         mask_guard.png
+         mask_scientist.png
+         mask_janitor.png
+     • Put them in:  first/assets/ui/  or  first/assets/3d/characters/masks/
+
+----------------------------------------
+OPTION B — 3D MASK MESH (OPTIONAL)
+----------------------------------------
+
+Only if you want a 3D mask on the character's face (e.g. when wearing a mask).
+
+  Where:  Sketchfab — free 3D models
+          https://sketchfab.com/features/free-3d-models
+
+  What to do:
+     • Search: "mask" or "face mask".
+     • Filter: "Downloadable" + "Free".
+     • Pick one model (e.g. "White Mask" or "Mask" — check license: CC0 or CC BY is OK).
+     • Click the model → Download → choose glTF or FBX.
+     • Put the downloaded file (e.g. .glb or .gltf) in:  first/assets/3d/characters/masks/
+     • In Godot: import and attach to character head bone when "mask equipped" (optional, more work).
+
+  Example links (check license before use):
+     • https://sketchfab.com/3d-models/white-mask-c0d85900a7be438c8d2400bb71649d31
+     • https://sketchfab.com/search?features=downloadable&type=models&q=mask
+
+----------------------------------------
+WHERE TO PUT FILES (SUMMARY)
+----------------------------------------
+
+  HUD icons (PNG):
+    first/assets/ui/
+      mask_guard.png
+      mask_scientist.png
+      mask_janitor.png
+
+  Or (alternative):
+    first/assets/3d/characters/masks/
+      mask_guard.png
+      mask_scientist.png
+      mask_janitor.png
+
+  3D mask mesh (optional):
+    first/assets/3d/characters/masks/
+      mask_model.glb   (or whatever you download)
+
+----------------------------------------
+QUICKEST PATH (DO THIS FIRST)
+----------------------------------------
+
+  1. Go to:  https://kenney-assets.itch.io/ui-pack
+  2. Download the pack (ZIP).
+  3. Unzip → pick 3 PNGs (same icon in red/blue/green, or 3 different icons).
+  4. Rename to:  mask_guard.png, mask_scientist.png, mask_janitor.png
+  5. Copy into:  first/assets/ui/
+  6. In Godot: use them in a TextureRect or Sprite2D for the "current mask" HUD.
+
+----------------------------------------
+END
+----------------------------------------

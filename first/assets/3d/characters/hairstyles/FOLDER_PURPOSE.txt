@@ -1,0 +1,1 @@
+Optional hair and eyebrows for Universal Base Characters. Rigged to head bone — add as child of character Armature/Head. Use for variety (e.g. Guard = Hair_Beard, Scientist = Hair_SimpleParted).

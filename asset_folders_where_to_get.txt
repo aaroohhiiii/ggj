@@ -1,0 +1,129 @@
+MASK SWAP — ASSET FOLDERS → WHERE TO GET EACH
+==============================================
+Quick reference: your asset folders and where to download each type of asset.
+
+----------------------------------------
+3D CHARACTERS
+----------------------------------------
+
+3d/characters/player/
+  Purpose:   Player model + animations (e.g. player_model.glb, walk)
+  Where:     Mixamo https://www.mixamo.com — one rigged character, export FBX (With Skin, 30 FPS).
+             Or Quaternius Universal Base Characters https://quaternius.itch.io/universal-base-characters (CC0, Godot-ready).
+
+3d/characters/npcs/
+  Purpose:   Guard, Scientist, Janitor
+  Where:     Same as player: one Mixamo or Quaternius humanoid, duplicate and give different materials/colors. No need for 3 separate packs.
+
+3d/characters/masks/
+  Purpose:   Mask icons or 3D meshes (Guard/Scientist/Janitor)
+  Where:     HUD icons: make 3 simple PNGs (e.g. red/blue/green squares) or Kenney UI https://kenney.nl/assets — pick icons and recolor.
+             3D mask meshes: optional; Sketchfab search "mask" (Downloadable + Free) if you want.
+
+----------------------------------------
+3D ENVIRONMENT
+----------------------------------------
+
+3d/environment/level1/
+  Purpose:   Exterior ground, walls, main door
+  Where:     Kenney Building Kit https://kenney.nl/assets/building-kit or Modular Buildings https://kenney-assets.itch.io/modular-buildings (FBX/OBJ/glTF, CC0). Delthor Sci-Fi Corridors https://delthor-games.itch.io/sci-fi-pack for facility look.
+
+3d/environment/level2/
+  Purpose:   Corridor walls, floor
+  Where:     Same: Kenney or Delthor. CubedBear Low-Poly Interior https://cubedbear.itch.io/low-poly-interior (walls/floors, FBX).
+
+3d/environment/level3/
+  Purpose:   Vault room, vault door
+  Where:     Reuse Level 2 kit + one door from Sketchfab (search "vault door" or "security door", Downloadable + Free).
+
+----------------------------------------
+3D PROPS & MATERIALS
+----------------------------------------
+
+3d/props/  — Door, terminal, vent, prize
+
+  What to get:
+    • Door (Guard-only door): 1 model
+    • Terminal (Scientist hack): 1 model
+    • Vent (optional, Janitor): 1 model
+    • Prize (Level 3 objective): 1 model (e.g. briefcase, document, keycard)
+
+  Where to get — Option A (easiest, one pack):
+    Kenney Game Assets 3
+    https://kenney.itch.io/kenney-game-assets-3
+    Download the pack (CC0). Unzip. Pick from the pack: a door-like prop, a panel/terminal-like prop, a vent-like prop (or box), and a small prop for the prize. Copy the .fbx or .glb files you need into first/assets/3d/props/. Rename if you like (e.g. door_guard.glb, terminal.glb, prize.glb).
+
+  Where to get — Option B (per-prop, Sketchfab):
+    Sketchfab free 3D models (filter: Downloadable + Free):
+    https://sketchfab.com/features/free-3d-models
+    1. Search "sci fi door" or "security door" → pick one → Download → choose glTF or FBX → put in first/assets/3d/props/ as door_guard.glb (or .fbx).
+    2. Search "sci fi terminal" or "control panel" → pick one → Download → glTF/FBX → put in first/assets/3d/props/ as terminal.glb (or .fbx).
+    3. Search "vent" or "air vent" (optional) → pick one → Download → put in first/assets/3d/props/ as vent.glb.
+    4. Search "briefcase" or "document" or "folder" → pick one → Download → put in first/assets/3d/props/ as prize.glb.
+    Check each model's license (CC0 or CC BY is fine for games).
+
+  Exact example links (Sketchfab; check license before use):
+    Sci-Fi Terminal: https://sketchfab.com/3d-models/sci-fi-terminal-78ac9439b01c45eebf2c5d16b04bf (search "sci fi terminal" if link changes)
+    Sci-Fi Doors:    https://sketchfab.com/search?features=downloadable&type=models&q=sci+fi+door
+
+  Put files in: first/assets/3d/props/
+  Names (suggested): door_guard.glb, terminal.glb, vent.glb (optional), prize.glb
+
+----------------------------------------
+
+3d/materials/  — Optional shared materials
+
+  What to get:
+    You don't have to download anything. This folder is for Godot material resources (.tres) that you create in-editor, using textures from assets/textures/.
+
+  If you want ready-made PBR textures to use in materials:
+    Poly Haven — Textures (CC0)
+    https://polyhaven.com/textures
+    Pick e.g. "Concrete", "Metal", "Floor" → open a texture → Download → choose resolution (1K is enough) → get ZIP with albedo, normal, roughness etc. → extract into first/assets/textures/. In Godot, create a StandardMaterial3D, assign Albedo/Normal/Roughness from those PNGs, save as .tres in first/assets/3d/materials/ (optional).
+
+    AmbientCG — CC0 PBR textures
+    https://ambientcg.com
+    Search "concrete", "metal", "floor" → pick one → Download → choose "Godot" or "Generic" → get ZIP → extract into first/assets/textures/. Use in StandardMaterial3D as above.
+
+  Put material files in: first/assets/3d/materials/ (optional; or keep materials on meshes only).
+  Put texture images in: first/assets/textures/
+
+----------------------------------------
+TEXTURES, FONTS, UI
+----------------------------------------
+
+textures/
+  Purpose:   Floor, wall images (PNG/JPG)
+  Where:     Poly Haven https://polyhaven.com/textures, AmbientCG https://ambientcg.com. Optional until you want nicer look.
+
+fonts/
+  Purpose:   UI text (prompts, HUD)
+  Where:     Godot default or Kenney https://kenney.nl/assets (Fonts). You can ship without custom font.
+
+ui/
+  Purpose:   HUD mask icons, prompt background
+  Where:     Mask icons: 3 colored PNGs you make (64x64 or 128x128) or Kenney UI. Prompt bg: optional; Kenney UI pack or simple panel.
+
+----------------------------------------
+AUDIO
+----------------------------------------
+
+music/
+  Purpose:   Level ambient loop
+  Where:     Kenney https://kenney.nl/assets (Music). itch.io https://itch.io/game-assets/music/free. OpenGameArt https://opengameart.org (check license).
+
+sounds/
+  Purpose:   mask_swap, door_open, terminal_hack, takedown, caught
+  Where:     Kenney https://kenney.nl/assets (Sound). Freesound https://freesound.org (filter CC0). itch.io https://itch.io/game-assets/sound-effects/free.
+
+----------------------------------------
+OTHER
+----------------------------------------
+
+sprites/
+  Purpose:   2D sprites if used; project is 3D
+  Where:     Only needed if you add 2D elements (e.g. UI sprites, decals). For pure 3D, leave empty or use for UI.
+
+----------------------------------------
+END
+----------------------------------------

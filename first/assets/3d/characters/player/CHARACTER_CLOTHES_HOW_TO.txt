@@ -1,0 +1,89 @@
+HOW TO ADD CLOTHES TO THE CHARACTER (EXACT STEPS)
+==================================================
+Your character is Quaternius Superhero Male/Female. The "outfit" is painted on the body texture (one mesh, one material). To get different looks (Guard, Scientist, Janitor) you have 3 options.
+
+----------------------------------------
+OPTION 1 — RECOLOR IN GODOT (FASTEST, NO NEW ASSETS)
+----------------------------------------
+
+Use the SAME character and only change the body color in Godot. No downloads, no texture editing.
+
+Steps:
+
+1. Open your project in Godot.
+
+2. Place the character in a scene:
+   - FileSystem → assets/3d/characters/player/
+   - Drag Superhero_Male_FullBody.gltf (or Female) into the scene tree (e.g. as child of your Player node, or into the level).
+
+3. In the Scene tree, select the character node (the root of the imported .gltf).
+
+4. Expand it and find the MeshInstance3D that has the body (often named like "Body" or the main mesh). Click it.
+
+5. In the Inspector, find the Material override or the Surface Material (expand the mesh if needed). The material uses T_Superhero_Male_Dark (or Female) as Albedo texture.
+
+6. Duplicate the material so you can edit it:
+   - Click the material → dropdown → Duplicate (or right‑click → Duplicate).
+   - You now have a copy (e.g. Superhero_Male_Dark (Material) copy).
+
+7. Change the Albedo color:
+   - In the duplicated material, find Albedo → Color (or Albedo → Texture → then add a tint).
+   - If there's no color yet: Albedo → enable "Vertex Color" or add a new StandardMaterial3D, set Albedo Texture to the same T_Superhero_Male_Dark.png, then set Albedo → Color to tint (e.g. dark blue for Guard, light grey/white for Scientist).
+   - Or: create a NEW StandardMaterial3D: Albedo Texture = T_Superhero_Male_Dark.png, Albedo Color = e.g. (0.2, 0.2, 0.5) for Guard, (0.9, 0.9, 0.95) for Scientist. Normal/Roughness = same as original (T_Superhero_Male_Normal.png, T_Superhero_Male_Roughness.png).
+
+8. Save the scene. Duplicate the character node for Guard/Scientist/Janitor and assign different Albedo colors per copy (Guard = dark, Scientist = light, Janitor = e.g. grey/green).
+
+Exact colors (suggested):
+  Guard:    Albedo Color ≈ (0.15, 0.2, 0.35)  — dark blue/grey
+  Scientist: Albedo Color ≈ (0.85, 0.9, 0.95) — light/white
+  Janitor:  Albedo Color ≈ (0.4, 0.4, 0.45)  — grey
+
+----------------------------------------
+OPTION 2 — EDIT THE TEXTURE (DIFFERENT OUTFIT COLORS ON BODY)
+----------------------------------------
+
+Paint different shirt/body colors on the PNG so Guard/Scientist/Janitor have clearly different outfits.
+
+Steps:
+
+1. Open the body texture in an image editor:
+   - File: first/assets/3d/characters/player/T_Superhero_Male_Dark.png (or T_Superhero_Female_Dark_BaseColor.png)
+
+2. Use GIMP (free) or Krita (free) or Photoshop:
+   - Duplicate the image; save copies as:
+     T_Guard_BaseColor.png      (paint body/shirt area dark blue or black)
+     T_Scientist_BaseColor.png  (paint body/shirt area white or light blue)
+     T_Janitor_BaseColor.png    (paint body/shirt area grey or green)
+   - Keep the same resolution and UV layout (don’t resize or crop the canvas). Only change the color of the “outfit” areas (torso, arms, legs as per the UV).
+
+3. Put the new PNGs in the same folder:
+   first/assets/3d/characters/player/
+
+4. In Godot:
+   - For each character (Guard, Scientist, Janitor), duplicate the character scene or the material.
+   - In the material, set Albedo Texture to the new PNG (T_Guard_BaseColor.png etc.). Keep Normal and Roughness as the original (T_Superhero_Male_Normal.png, T_Superhero_Male_Roughness.png) unless you made new ones.
+
+5. Save. You now have 3 outfit variants.
+
+----------------------------------------
+OPTION 3 — SEPARATE CLOTHING ASSETS (EXTRA MESHES ON TOP)
+----------------------------------------
+
+Use extra “clothing” meshes (e.g. lab coat, vest) that parent to the same character rig. Harder with Quaternius because most free clothing packs are made for Mixamo or other rigs.
+
+Where to look (if you want to try):
+  - Sketchfab: search “lab coat”, “guard uniform”, “character outfit” — filter Downloadable + Free. Check if rig is compatible (humanoid, similar bone names).
+  - Mixamo: different characters have different outfits (not “clothes” you add on top). You could use one Mixamo character as Scientist (lab coat) and keep Quaternius for Guard.
+  - Quaternius: https://quaternius.itch.io — check other packs (e.g. “Packs” or “Characters”) for outfit add-ons; not all fit the Universal Base rig.
+
+For a jam, Option 1 (recolor in Godot) is enough: Guard = dark, Scientist = light, Janitor = grey. Option 2 if you want clearly different “uniform” looks without extra meshes.
+
+----------------------------------------
+SUMMARY
+----------------------------------------
+
+  Option 1: Recolor in Godot — duplicate material, change Albedo Color (Guard dark blue, Scientist light, Janitor grey). No new files.
+  Option 2: Edit T_Superhero_Male_Dark.png — paint body different colors, save as T_Guard_BaseColor.png etc., assign in Godot.
+  Option 3: Add separate clothing meshes — possible but need rig‑compatible assets; optional.
+
+Use Option 1 first; add Option 2 later if you want stronger outfit differences.

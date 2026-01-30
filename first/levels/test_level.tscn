@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://test_level_phase1"]
+[gd_scene format=3 uid="uid://cc02uuomm45q"]
 
-[ext_resource type="PackedScene" uid="uid://player_mask_swap" path="res://scenes/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" uid="uid://wln2c1agl5wt" path="res://assets/3d/characters/player/Superhero_Male_FullBody.gltf" id="2_x25rp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
 size = Vector3(20, 1, 20)
@@ -8,16 +9,25 @@ size = Vector3(20, 1, 20)
 [sub_resource type="BoxMesh" id="BoxMesh_floor"]
 size = Vector3(20, 1, 20)
 
-[node name="TestLevel" type="Node3D"]
+[node name="TestLevel" type="Node3D" unique_id=392441623]
 
-[node name="Floor" type="StaticBody3D" parent="."]
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1915013437]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=2009850719]
 shape = SubResource("BoxShape3D_floor")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1385582138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95525694, 0.050774097, -1.3631976)
 mesh = SubResource("BoxMesh_floor")
 
-[node name="Player" parent="." instance=ExtResource("1_player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="Player" parent="." unique_id=478082441 instance=ExtResource("1_player")]
+transform = Transform3D(0.9949027, 0.10082757, 0.0015469515, -0.100824706, 0.9949027, -0.0018242975, -0.0017229919, 0.0016590414, 0.99999714, -0.6477504, -0.5670066, 1.6732609)
+
+[node name="Superhero_Male_FullBody" parent="Player" unique_id=1967527779 instance=ExtResource("2_x25rp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -2.3841858e-07, 1)
+
+[node name="SuperHero_Male" parent="Player/Superhero_Male_FullBody/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1967527779, 1717155221) index="2" unique_id=433410373]
+transform = Transform3D(1, 1.5620572e-10, -4.656613e-10, 4.3519321e-10, 1.0000005, 4.656613e-10, -4.656613e-10, -2.3283064e-10, 1, 1.292161, 0.5943595, -1.5103742)
+
+[editable path="Player/Superhero_Male_FullBody"]
